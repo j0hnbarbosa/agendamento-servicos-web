@@ -10,10 +10,15 @@ import Signup from "../pages/Signup"
 import AvailableTime from "../pages/AvailableTime"
 import Home from "../pages/Home"
 import WorkType from "../pages/WorkType"
+import { BridgeGuardProvider } from "../context/BridgeGuard"
 
 const routerPaths = createBrowserRouter([
   {
-    element: <App />,
+    element: (
+      <BridgeGuardProvider>
+        <App />
+      </BridgeGuardProvider>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {

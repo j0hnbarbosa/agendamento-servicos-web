@@ -76,7 +76,7 @@ const Signup = () => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="isProfessional" className='flex items-center whitespace-nowrap hover:cursor-pointer'>Prestador de serviços?
+            <label htmlFor="isProvider" className='select-none flex items-center whitespace-nowrap hover:cursor-pointer'>Prestador de serviços?
               <input
                 type="checkbox"
                 id="isProvider"

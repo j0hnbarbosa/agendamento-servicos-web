@@ -1,5 +1,6 @@
 import React, { ReactNode, createContext, useEffect, useState } from 'react'
 import api, { handleSetToken } from '../../services/api'
+import { useNavigate } from 'react-router-dom'
 
 interface BridgeGuardProviderProps {
   isAuthenticated: boolean
@@ -24,6 +25,8 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
+  const navigate = useNavigate()
 
   const isDisabled = email === '' || password === ''
 
@@ -53,7 +56,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
 
       handleSetToken(res.data.token)
 
-      window.location.replace('/admin')
+      navigate('/admin', { replace: true })
     } catch (error) {
       console.log(error)
     }
@@ -99,9 +102,9 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     const isAuthenticatedLocal = localStorage.getItem('isAuthenticated')
 
     if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
-      window.location.replace('/login')
+      navigate('/login', { replace: true })
     } else if (isAuthenticatedLocal && window.location.pathname === '/login') {
-      window.location.replace('/')
+      navigate('/', { replace: true })
     }
   })
 

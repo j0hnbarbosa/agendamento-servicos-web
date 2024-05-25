@@ -49,6 +49,7 @@ const WorkType = () => {
       <div>Work Type</div>
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
         <span className="text-2xl font-bold">Register</span>
+        <span className="text-sm mb-8">Cadastrar tipo de trabalho que o Provedor pode executar</span>
 
         <div className='flex w-full justify-center flex-col items-center'>
           <div className='w-[300px]'>
