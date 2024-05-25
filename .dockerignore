@@ -1,0 +1,12 @@
+#igenore node modeules
+node_modules
+
+# ignore build files
+build
+
+# ignore package-lock.json
+package-lock.json
+
+# ignore yarn.lock
+yarn.lock
+

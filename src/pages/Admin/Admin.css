@@ -1,0 +1,39 @@
+/* Estilos gerais */
+.calendar-grid {
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos para os dias da semana */
+.calendar-day {
+  width: 14.28%;
+  padding: 10px;
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para os eventos do calendário */
+.event {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #e6e6e6;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para os horários do calendário */
+.time-slot {
+  width: 14.28%;
+  padding: 10px;
+  text-align: center;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+}
+
+/* Estilos para os eventos do calendário */
+.event {
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: #e6e6e6;
+  border: 1px solid #ccc;
+}
