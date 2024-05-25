@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [react()],
   server: {
     watch: {
@@ -10,9 +11,6 @@ export default defineConfig({
     },
     host: true, // Here
     strictPort: true,
-    port: 3000,
-  },
-  build: {
-    outDir: '/var/www/agendamentoservicos.iconfiteam.com'
-  },
+    port: 8080,
+  }
 })
