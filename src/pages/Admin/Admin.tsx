@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
-import './Admin.css';
-import api from '../../services/api';
+import { useEffect, useState } from 'react'
+import './Admin.css'
+import api from '../../services/api'
 
 export interface UsersProps {
   id: number
@@ -10,7 +10,7 @@ export interface UsersProps {
 }
 
 const Admin = () => {
-  const [users, setUsers] = useState<UsersProps[]>([]);
+  const [users, setUsers] = useState<UsersProps[]>([])
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -23,8 +23,8 @@ const Admin = () => {
       }
     }
 
-    fetchUsers();
-  }, []);
+    fetchUsers()
+  }, [])
 
   return (
     <div>
@@ -68,7 +68,7 @@ const Admin = () => {
         </table>
       </section>
     </div>
-  );
-};
+  )
+}
 
-export default Admin;
+export default Admin

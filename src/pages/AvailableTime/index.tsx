@@ -1,11 +1,11 @@
 import { useContext, useState } from 'react'
-import RegistrationForm from './RegistrationForm';
-import { TempStateContext } from '../../context/TempStateContenxt';
-import TableDate from '../../components/TableDate';
-import api from '../../services/api';
+import RegistrationForm from './RegistrationForm'
+import { TempStateContext } from '../../context/TempStateContenxt'
+import TableDate from '../../components/TableDate'
+import api from '../../services/api'
 
 const AvailableTime = () => {
-  const [fields, setFields] = useState({});
+  const [fields, setFields] = useState({})
   const [tempMessage, setTempMessage] = useState('')
 
   const context = useContext(TempStateContext)
@@ -31,7 +31,6 @@ const AvailableTime = () => {
       console.log(error)
     }
   }
-
 
   return (
     <>

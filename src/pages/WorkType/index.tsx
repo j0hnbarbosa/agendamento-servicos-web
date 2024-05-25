@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import RegistrationForm from './RegistrationForm'
-import api from '../../services/api';
+import api from '../../services/api'
 
 const WorkType = () => {
-  const [fields, setFields] = useState<{ name?: string }>({});
+  const [fields, setFields] = useState<{ name?: string }>({})
   const [workTypes, setWorkTypes] = useState([])
   const [tempMessage, setTempMessage] = useState('')
 

@@ -1,15 +1,15 @@
 import {
   createBrowserRouter
-} from "react-router-dom";
+} from "react-router-dom"
 
-import App from '../pages/index/App';
-import ErrorPage from "../pages/Errors/default";
-import Admin from "../pages/Admin/Admin";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import AvailableTime from "../pages/AvailableTime";
-import Home from "../pages/Home";
-import WorkType from "../pages/WorkType";
+import App from '../pages/index/App'
+import ErrorPage from "../pages/Errors/default"
+import Admin from "../pages/Admin/Admin"
+import Login from "../pages/Login"
+import Signup from "../pages/Signup"
+import AvailableTime from "../pages/AvailableTime"
+import Home from "../pages/Home"
+import WorkType from "../pages/WorkType"
 
 const routerPaths = createBrowserRouter([
   {
@@ -48,6 +48,6 @@ const routerPaths = createBrowserRouter([
       },
     ]
   }
-]);
+])
 
-export default routerPaths;
+export default routerPaths

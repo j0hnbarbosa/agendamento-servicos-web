@@ -13,7 +13,7 @@ function Dropdown({
   currentValue,
   onChange
 }: Props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const currentValueInput = values.find((element) => element.id === currentValue)
 

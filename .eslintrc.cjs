@@ -15,5 +15,8 @@ module.exports = {
       { allowConstantExport: true },
     ],
     '@typescript-eslint/no-explicit-any': "off",
+    'no-multiple-empty-lines': ["error", { max: 1 }],
+    'semi': ["error", "never"],
+    'react-hooks/exhaustive-deps': "off"
   },
 }

@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
-import './App.css';
-import { TempStateContextProvider } from '../../context/TempStateContenxt';
+import './App.css'
+import { TempStateContextProvider } from '../../context/TempStateContenxt'
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Outlet />
       </TempStateContextProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

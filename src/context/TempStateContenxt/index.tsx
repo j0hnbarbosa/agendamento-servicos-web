@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react'
 
 export interface AvailableTimeProps {
-  date: Date
+  date: string
   workType: string
-  hour: Date
+  hour: string
   name: string
 }
 

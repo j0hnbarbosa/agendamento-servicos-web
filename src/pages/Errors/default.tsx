@@ -1,8 +1,8 @@
-import { useRouteError } from "react-router-dom";
+import { useRouteError } from "react-router-dom"
 
 export default function ErrorPage() {
-  const error = useRouteError() as any;
-  console.error(error);
+  const error = useRouteError() as any
+  console.error(error)
 
   return (
     <div className="my-10 font-bold text-lg flex flex-col justify-cente items-center">
@@ -13,5 +13,5 @@ export default function ErrorPage() {
       </p>
         <a className="text-blue-500 hover:underline" href="/">Click to go Home</a>
     </div>
-  );
+  )
 }

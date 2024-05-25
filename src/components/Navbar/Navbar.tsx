@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import "./Navbar.css";
-import { BridgeGuardContext } from "../../context/BridgeGuard";
+import { useContext } from "react"
+import "./Navbar.css"
+import { BridgeGuardContext } from "../../context/BridgeGuard"
 import { Link } from 'react-router-dom'
 
 function Navbar() {
@@ -25,7 +25,7 @@ function Navbar() {
         </ul>
       </nav>
     </div>
-  );
+  )
 }
 
-export default Navbar;
+export default Navbar

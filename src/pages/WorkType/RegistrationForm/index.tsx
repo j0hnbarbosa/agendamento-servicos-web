@@ -5,9 +5,9 @@ const RegistrationForm = ({
 }) => {
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     onConfirm()
-  };
+  }
 
   return (
     <form className="flex flex-col gap-y-5" onSubmit={handleSubmit}>
@@ -20,8 +20,8 @@ const RegistrationForm = ({
       <br />
       <button disabled={!fields['name']} type="submit">Register</button>
     </form>
-  );
-};
+  )
+}
 
-export default RegistrationForm;
+export default RegistrationForm
 

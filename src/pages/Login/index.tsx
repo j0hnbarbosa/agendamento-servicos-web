@@ -1,6 +1,6 @@
-import { useContext } from 'react';
-import './Login.css';
-import { BridgeGuardContext } from '../../context/BridgeGuard';
+import { useContext } from 'react'
+import './Login.css'
+import { BridgeGuardContext } from '../../context/BridgeGuard'
 
 const Login = () => {
 
@@ -46,7 +46,7 @@ const Login = () => {
         <a href="/signup">Não tem uma conta? Cadastre-se</a>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

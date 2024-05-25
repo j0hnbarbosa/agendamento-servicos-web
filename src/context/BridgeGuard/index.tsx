@@ -19,12 +19,11 @@ export const BridgeGuardContext = createContext({} as BridgeGuardProviderProps)
 
 export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isToShow, setIsToShow] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isToShow, setIsToShow] = useState(false)
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
 
   const isDisabled = email === '' || password === ''
 
@@ -33,11 +32,11 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   }
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    setPassword(e.target.value)
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       setError('')
 
@@ -97,7 +96,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
 
   // Always check if the user is authenticated and redirect to the login page if it is not
   useEffect(() => {
-    const isAuthenticatedLocal = localStorage.getItem('isAuthenticated');
+    const isAuthenticatedLocal = localStorage.getItem('isAuthenticated')
 
     if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
       window.location.replace('/login')

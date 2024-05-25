@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
+import { useState, useEffect } from "react"
+import DatePicker from "react-datepicker"
 
-import "react-datepicker/dist/react-datepicker.css";
-import api from "../../../services/api";
-import Dropdown from "../../../components/Dropdown";
-import { UsersProps } from "../../Admin/Admin";
+import "react-datepicker/dist/react-datepicker.css"
+import api from "../../../services/api"
+import Dropdown from "../../../components/Dropdown"
+import { UsersProps } from "../../Admin/Admin"
 
 const RegistrationForm = ({
   onChange,
   fields,
   onConfirm,
 }) => {
-  const [workTypes, setWorkTypes] = useState([]);
-  const [users, setUsers] = useState<UsersProps[]>([]);
+  const [workTypes, setWorkTypes] = useState([])
+  const [users, setUsers] = useState<UsersProps[]>([])
   const isDisabled = !fields['userId'] || !fields['startHour'] || !fields['endHour'] || !fields['workTypeId'] || !fields['date']
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     onConfirm()
-  };
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,7 +77,6 @@ const RegistrationForm = ({
         </div>
       </label>
 
-
       <label>
         Date:
         <div>
@@ -100,8 +99,8 @@ const RegistrationForm = ({
 
       <button disabled={isDisabled} type="submit">Register</button>
     </form>
-  );
-};
+  )
+}
 
-export default RegistrationForm;
+export default RegistrationForm
 

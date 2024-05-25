@@ -1,47 +1,47 @@
-import React, { useState } from 'react';
-import './Signup.css';
-import api from '../../services/api';
+import React, { useState } from 'react'
+import './Signup.css'
+import api from '../../services/api'
 
 const Signup = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isProvider, setIsProvider] = useState(false);
-  const [error, setError] = useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [isProvider, setIsProvider] = useState(false)
+  const [error, setError] = useState('')
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
+    setName(e.target.value)
+  }
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
+    setEmail(e.target.value)
+  }
 
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
+    setPassword(e.target.value)
+  }
 
   const handleIsProviderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIsProvider(e.target.checked);
-  };
+    setIsProvider(e.target.checked)
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      setError('');
+      setError('')
       const res = await api.post('/createUser', { name, email, password, isProvider })
 
       if (res?.data?.error) {
-        setError(`${res.data.error} - Email already in use.`);
-        return;
+        setError(`${res.data.error} - Email already in use.`)
+        return
       } else {
-        window.location.href = '/login';
+        window.location.href = '/login'
       }
     } catch (error) {
-      setError(error?.response?.data?.message);
+      setError(error?.response?.data?.message)
       console.log(error)
     }
-  };
+  }
 
   return (
     <div>
@@ -94,7 +94,7 @@ const Signup = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup
