@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import './Login.css'
 import { BridgeGuardContext } from '../../context/BridgeGuard'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     handleEmailChange,
     handlePasswordChange,
     error,
-    isDisabled
+    isDisabled,
   } = useContext(BridgeGuardContext)
 
   return (
@@ -43,7 +44,7 @@ const Login = () => {
 
           <button disabled={isDisabled} type="submit">Login</button>
         </form>
-        <a href="/signup">Não tem uma conta? Cadastre-se</a>
+        <Link to="/signup">Não tem uma conta? Cadastre-se</Link>
       </div>
     </div>
   )

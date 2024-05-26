@@ -14,7 +14,8 @@ interface BridgeGuardProviderProps {
   handleEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   handlePasswordChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   error: string
-  isDisabled: boolean
+  isDisabled: boolean,
+  navigate: (path: string, options?: { replace: boolean }) => void
 }
 export const BridgeGuardContext = createContext({} as BridgeGuardProviderProps)
 
@@ -79,7 +80,8 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     handleEmailChange,
     handlePasswordChange,
     error,
-    isDisabled
+    isDisabled,
+    navigate
   }
 
   // Authenticated logic.
