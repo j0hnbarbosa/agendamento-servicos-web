@@ -6,6 +6,8 @@
 
 ```bash
 VITE_URL_API=http://localhost:3001/api/v1
+
+VITE_BUILD_PATH=dist
 ```
 
 ## Install and Run project
