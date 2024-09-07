@@ -4,6 +4,6 @@ services:
       build:
         context: .
       environment:
-        VITE_URL_API: http://localhost:3001
+        VITE_URL_API: http://localhost:3001/api/v1
       ports:
         - "3000:3000"
