@@ -2,9 +2,10 @@ import { useState, useEffect } from "react"
 import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
-import api from "../../../services/api"
-import Dropdown from "../../../components/Dropdown"
-import { UsersProps } from "../../Admin/Admin"
+
+import api from "@/services/api"
+import Dropdown from "@/components/Dropdown"
+import { UsersProps } from "@/pages/Admin"
 
 const RegistrationForm = ({
   onChange,

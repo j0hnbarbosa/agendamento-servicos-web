@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react'
 import RegistrationForm from './RegistrationForm'
-import { TempStateContext } from '../../context/TempStateContenxt'
-import TableDate from '../../components/TableDate'
-import api from '../../services/api'
+import { TempStateContext } from '@/context/TempStateContenxt'
+import TableDate from '@/components/TableDate'
+import api from '@/services/api'
 
 const AvailableTime = () => {
   const [fields, setFields] = useState({})

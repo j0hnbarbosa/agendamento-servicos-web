@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import './Signup.css'
-import api from '../../services/api'
+import api from '@/services/api'
+import { Link } from 'react-router-dom'
+
+type InputProps = React.ChangeEvent<HTMLInputElement>
+type FormProps = React.FormEvent<HTMLFormElement>
 
 const Signup = () => {
   const [name, setName] = useState('')
@@ -9,23 +12,23 @@ const Signup = () => {
   const [isProvider, setIsProvider] = useState(false)
   const [error, setError] = useState('')
 
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNameChange = (e: InputProps) => {
     setName(e.target.value)
   }
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: InputProps) => {
     setEmail(e.target.value)
   }
 
-  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePasswordChange = (e: InputProps) => {
     setPassword(e.target.value)
   }
 
-  const handleIsProviderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleIsProviderChange = (e: InputProps) => {
     setIsProvider(e.target.checked)
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormProps) => {
     e.preventDefault()
     try {
       setError('')
@@ -45,10 +48,10 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="container max-w-md">
+      <div className="mx-auto p-10 bg-white rounded-md shadow-md max-w-md">
         <form className="form" onSubmit={handleSubmit}>
           <h2>Cadastro</h2>
-          <div className="form-group">
+          <div className="mb-4">
             <label htmlFor="name">Nome</label>
             <input
               type="text"
@@ -57,7 +60,8 @@ const Signup = () => {
               onChange={handleNameChange}
             />
           </div>
-          <div className="form-group">
+
+          <div className="mb-4">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -66,7 +70,8 @@ const Signup = () => {
               onChange={handleEmailChange}
             />
           </div>
-          <div className="form-group">
+
+          <div className="mb-4">
             <label htmlFor="password">Senha</label>
             <input
               type="password"
@@ -75,8 +80,13 @@ const Signup = () => {
               onChange={handlePasswordChange}
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="isProvider" className='select-none flex items-center whitespace-nowrap hover:cursor-pointer'>Prestador de serviços?
+
+          <div className="mb-4">
+            <label
+              htmlFor="isProvider"
+              className='select-none flex items-center whitespace-nowrap hover:cursor-pointer'
+            >
+              Prestador de serviços?
               <input
                 type="checkbox"
                 id="isProvider"
@@ -86,12 +96,17 @@ const Signup = () => {
               />
             </label>
           </div>
+
           {
             error && <div className="text-red-700 py-3 font-bold text-sm">{error}</div>
           }
 
           <button type="submit">Cadastro</button>
         </form>
+
+        <div className='mt-2'>
+          <Link to="/login">Fazer login</Link>
+        </div>
       </div>
     </div>
   )

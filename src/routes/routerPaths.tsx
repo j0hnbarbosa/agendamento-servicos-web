@@ -1,16 +1,14 @@
-import {
-  createBrowserRouter
-} from "react-router-dom"
+import { createBrowserRouter } from "react-router-dom"
 
-import App from '../pages/index/App'
-import ErrorPage from "../pages/Errors/default"
-import Admin from "../pages/Admin/Admin"
-import Login from "../pages/Login"
-import Signup from "../pages/Signup"
-import AvailableTime from "../pages/AvailableTime"
-import Home from "../pages/Home"
-import WorkType from "../pages/WorkType"
-import { BridgeGuardProvider } from "../context/BridgeGuard"
+import App from '@/pages/App'
+import ErrorPage from "@/pages/Errors"
+import Admin from "@/pages/Admin"
+import Login from "@/pages/Login"
+import Signup from "@/pages/Signup"
+import AvailableTime from "@/pages/AvailableTime"
+import Home from "@/pages/Home"
+import WorkType from "@/pages/WorkType"
+import { BridgeGuardProvider } from "@/context/BridgeGuard"
 
 const routerPaths = createBrowserRouter([
   {

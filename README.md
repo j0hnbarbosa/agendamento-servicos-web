@@ -11,7 +11,7 @@ VITE_BUILD_PATH=dist
 ```
 
 ## Install and Run project
-```
+```bash
 npm install
 
 npm run dev

@@ -1,5 +1,5 @@
 import React, { ReactNode, createContext, useEffect, useState } from 'react'
-import api, { handleSetToken } from '../../services/api'
+import api, { handleSetToken } from '@/services/api'
 import { useNavigate } from 'react-router-dom'
 
 interface BridgeGuardProviderProps {

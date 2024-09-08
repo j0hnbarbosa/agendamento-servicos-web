@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
-import { BridgeGuardContext } from "../../context/BridgeGuard"
-import api from "../../services/api"
-import { AvailableUsersProps } from "../../types"
-import { formatDate, formatHour } from "../../utils/getDateTime"
+import { BridgeGuardContext } from "@/context/BridgeGuard"
+import api from "@/services/api"
+import { AvailableUsersProps } from "@/types"
+import { formatDate, formatHour } from "@/utils/getDateTime"
 
 function Home() {
 

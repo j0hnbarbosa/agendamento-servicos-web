@@ -1,6 +1,6 @@
 import { useContext } from "react"
-import "./Navbar.css"
-import { BridgeGuardContext } from "../../context/BridgeGuard"
+import styles from "@/components/Navbar/Navbar.module.scss"
+import { BridgeGuardContext } from "@/context/BridgeGuard"
 import { Link } from 'react-router-dom'
 
 function Navbar() {
@@ -11,8 +11,8 @@ function Navbar() {
   } = useContext(BridgeGuardContext)
 
   return (
-    <div className="navbar mb-8">
-      <h1 className="navbar-brand">Barbearia</h1>
+    <div className={`${styles.navbar} mb-8 `}>
+      <h1 className={`${styles.navbarBrand}`}>Barbearia</h1>
       <nav>
         <ul>
           <li><Link to="/">Início</Link></li>

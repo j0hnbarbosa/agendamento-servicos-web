@@ -1,5 +1,4 @@
 import { useContext } from 'react'
-import './Login.css'
 import { BridgeGuardContext } from '../../context/BridgeGuard'
 import { Link } from 'react-router-dom'
 
@@ -17,10 +16,10 @@ const Login = () => {
 
   return (
     <div>
-      <div className="container max-w-md">
+      <div className="mx-auto p-10 bg-white rounded-md shadow-md max-w-md">
         <h2>Login</h2>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="mb-4">
             <label htmlFor="email">Email</label>
             <input
               type="email"
@@ -29,7 +28,7 @@ const Login = () => {
               onChange={handleEmailChange}
             />
           </div>
-          <div className="form-group">
+          <div className="mb-4">
             <label htmlFor="password">Senha</label>
             <input
               type="password"
@@ -44,7 +43,10 @@ const Login = () => {
 
           <button disabled={isDisabled} type="submit">Login</button>
         </form>
-        <Link to="/signup">Não tem uma conta? Cadastre-se</Link>
+
+        <div className='mt-2'>
+          <Link to="/signup">Não tem uma conta? Cadastre-se</Link>
+        </div>
       </div>
     </div>
   )

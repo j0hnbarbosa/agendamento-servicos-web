@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Admin.css'
-import api from '../../services/api'
+import api from '@/services/api'
+import { useTranslation } from 'react-i18next'
 
 export interface UsersProps {
   id: number
@@ -11,6 +12,8 @@ export interface UsersProps {
 
 const Admin = () => {
   const [users, setUsers] = useState<UsersProps[]>([])
+
+  const { t } = useTranslation()
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -28,7 +31,7 @@ const Admin = () => {
 
   return (
     <div>
-      <h1>Admin Page</h1>
+      <h1>{t("admin.title")}</h1>
 
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
         <span className="text-2xl font-bold">Available Users</span>

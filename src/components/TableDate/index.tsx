@@ -1,5 +1,5 @@
-import { AvailableTimeProps } from "../../context/TempStateContenxt"
-import { formatDate, formatHour } from "../../utils/getDateTime"
+import { AvailableTimeProps } from "@/context/TempStateContenxt"
+import { formatDate, formatHour } from "@/utils/getDateTime"
 
 interface TableDateProps {
   values: AvailableTimeProps[]
