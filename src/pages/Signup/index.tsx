@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import api from '@/services/api'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 type InputProps = React.ChangeEvent<HTMLInputElement>
 type FormProps = React.FormEvent<HTMLFormElement>
@@ -11,6 +12,10 @@ const Signup = () => {
   const [password, setPassword] = useState('')
   const [isProvider, setIsProvider] = useState(false)
   const [error, setError] = useState('')
+
+  const { t } = useTranslation()
+
+  const navigate = useNavigate()
 
   const handleNameChange = (e: InputProps) => {
     setName(e.target.value)
@@ -35,10 +40,10 @@ const Signup = () => {
       const res = await api.post('/createUser', { name, email, password, isProvider })
 
       if (res?.data?.error) {
-        setError(`${res.data.error} - Email already in use.`)
+        setError(`${res.data.error} - ${t('signup.email-error')}`)
         return
       } else {
-        window.location.href = '/login'
+        navigate('/login')
       }
     } catch (error) {
       setError(error?.response?.data?.message)
@@ -52,7 +57,9 @@ const Signup = () => {
         <form className="form" onSubmit={handleSubmit}>
           <h2>Cadastro</h2>
           <div className="mb-4">
-            <label htmlFor="name">Nome</label>
+            <label htmlFor="name">
+              {t('signup.name')}
+            </label>
             <input
               type="text"
               id="name"
@@ -62,7 +69,9 @@ const Signup = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">
+              {t('signup.email')}
+            </label>
             <input
               type="email"
               id="email"
@@ -72,7 +81,9 @@ const Signup = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="password">
+              {t('signup.password')}
+            </label>
             <input
               type="password"
               id="password"
@@ -86,7 +97,7 @@ const Signup = () => {
               htmlFor="isProvider"
               className='select-none flex items-center whitespace-nowrap hover:cursor-pointer'
             >
-              Prestador de serviços?
+              {t('signup.is-provider')}
               <input
                 type="checkbox"
                 id="isProvider"
@@ -101,11 +112,15 @@ const Signup = () => {
             error && <div className="text-red-700 py-3 font-bold text-sm">{error}</div>
           }
 
-          <button type="submit">Cadastro</button>
+          <button type="submit">
+            {t('signup.signup-btn')}
+          </button>
         </form>
 
         <div className='mt-2'>
-          <Link to="/login">Fazer login</Link>
+          <Link to="/login">
+            {t('signup.have-account')}
+          </Link>
         </div>
       </div>
     </div>

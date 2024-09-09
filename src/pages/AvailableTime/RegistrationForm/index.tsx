@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css"
 import api from "@/services/api"
 import Dropdown from "@/components/Dropdown"
 import { UsersProps } from "@/pages/Admin"
+import { useTranslation } from "react-i18next"
 
 const RegistrationForm = ({
   onChange,
@@ -15,6 +16,8 @@ const RegistrationForm = ({
   const [workTypes, setWorkTypes] = useState([])
   const [users, setUsers] = useState<UsersProps[]>([])
   const isDisabled = !fields['userId'] || !fields['startHour'] || !fields['endHour'] || !fields['workTypeId'] || !fields['date']
+
+  const { t } = useTranslation()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -40,7 +43,7 @@ const RegistrationForm = ({
   return (
     <form className="flex flex-col gap-y-5" onSubmit={handleSubmit}>
       <label>
-        Nome Prestador:
+        {t('availableTime.name-provider')}
         <Dropdown
           values={users.map((element) => ({ name: element.name, id: element.id, }))}
           currentValue={fields['userId']}
@@ -49,7 +52,7 @@ const RegistrationForm = ({
       </label>
 
       <label>
-        Hora Inicio:
+        {t('availableTime.start-hour')}
         <div>
           <DatePicker
             selected={fields['startHour'] || ''}
@@ -64,7 +67,7 @@ const RegistrationForm = ({
       </label>
 
       <label>
-        Hora Fim:
+        {t('availableTime.end-hour')}
         <div>
           <DatePicker
             selected={fields['endHour'] || ''}
@@ -79,7 +82,7 @@ const RegistrationForm = ({
       </label>
 
       <label>
-        Date:
+        {t('availableTime.date')}
         <div>
           <DatePicker
             dateFormat="dd/MM/yyyy"
@@ -90,7 +93,7 @@ const RegistrationForm = ({
       </label>
 
       <label>
-        Work Type
+        {t('availableTime.work-type')}
         <Dropdown
           values={workTypes}
           currentValue={fields['workTypeId']}
@@ -98,7 +101,9 @@ const RegistrationForm = ({
         />
       </label>
 
-      <button disabled={isDisabled} type="submit">Register</button>
+      <button disabled={isDisabled} type="submit">
+        {t('availableTime.register')}
+      </button>
     </form>
   )
 }

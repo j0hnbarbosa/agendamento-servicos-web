@@ -17,7 +17,6 @@ export const TempStateContext = createContext({} as TempStateContextProps)
 export const TempStateContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [fields, setFields] = useState<AvailableTimeProps[]>([])
 
-  console.log('fields', fields)
   const values = {
     setFields,
     fields

@@ -3,10 +3,13 @@ import { BridgeGuardContext } from "@/context/BridgeGuard"
 import api from "@/services/api"
 import { AvailableUsersProps } from "@/types"
 import { formatDate, formatHour } from "@/utils/getDateTime"
+import { useTranslation } from "react-i18next"
 
 function Home() {
 
   const context = useContext(BridgeGuardContext)
+
+  const { t } = useTranslation()
 
   const [availableHours, setAvailableHours] = useState<AvailableUsersProps[]>([])
 
@@ -27,27 +30,30 @@ function Home() {
   return (
     <>
       <h1 className='flex justify-center mb-8'>
-        Hello this is the App to schedule appointments
+        {t('home.welcome')}
+
       </h1>
 
       {context.isToShow && (
         <h1 className='flex justify-center'>
-          To schedule an appointment, please go to the <span className="font-bold ml-1 mr-1">CADASTRAR HORÁRIO</span> page
+          {t('home.description')} <span className="font-bold ml-1 mr-1">{t('home.register-time')}</span>
         </h1>
       )}
 
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
-        <span className="text-2xl font-bold mb-4">Available Appointments</span>
+        <span className="text-2xl font-bold mb-4">
+          {t('home.available-appointments')}
+        </span>
 
         <table>
           <thead className='border border-gray-400'>
             <tr>
-              <th className='border border-gray-400 p-4'>ID</th>
-              <th className='border border-gray-400 p-4'>Nome Provedor do Trabalho</th>
-              <th className='border border-gray-400 p-4'>Data</th>
-              <th className='border border-gray-400 p-4'>Hora Inicio</th>
-              <th className='border border-gray-400 p-4'>Hora Fim</th>
-              <th className='border border-gray-400 p-4'>Tipo Trabalho Provido</th>
+              <th className='border border-gray-400 p-4'>{t('home.id')}</th>
+              <th className='border border-gray-400 p-4'>{t('home.worker')}</th>
+              <th className='border border-gray-400 p-4'>{t('home.date')}</th>
+              <th className='border border-gray-400 p-4'>{t('home.start-time')}</th>
+              <th className='border border-gray-400 p-4'>{t('home.end-time')}</th>
+              <th className='border border-gray-400 p-4'>{t('home.type-work')}</th>
             </tr>
           </thead>
 

@@ -1,8 +1,10 @@
 import { useContext } from 'react'
 import { BridgeGuardContext } from '../../context/BridgeGuard'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Login = () => {
+  const { t } = useTranslation()
 
   const {
     handleSubmit,
@@ -17,10 +19,10 @@ const Login = () => {
   return (
     <div>
       <div className="mx-auto p-10 bg-white rounded-md shadow-md max-w-md">
-        <h2>Login</h2>
+        <h2>{t('login.title')}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">{t('login.email')}</label>
             <input
               type="email"
               id="email"
@@ -29,7 +31,9 @@ const Login = () => {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="password">Senha</label>
+            <label htmlFor="password">
+              {t('login.password')}
+            </label>
             <input
               type="password"
               id="password"
@@ -41,11 +45,15 @@ const Login = () => {
             error && <div className="text-red-700 py-3 font-bold text-sm">{error}</div>
           }
 
-          <button disabled={isDisabled} type="submit">Login</button>
+          <button disabled={isDisabled} type="submit">
+            {t('login.login-btn')}
+          </button>
         </form>
 
         <div className='mt-2'>
-          <Link to="/signup">Não tem uma conta? Cadastre-se</Link>
+          <Link to="/signup">
+            {t('login.no-account')}
+          </Link>
         </div>
       </div>
     </div>

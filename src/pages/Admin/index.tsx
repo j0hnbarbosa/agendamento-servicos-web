@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import './Admin.css'
 import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
 
@@ -34,15 +33,15 @@ const Admin = () => {
       <h1>{t("admin.title")}</h1>
 
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
-        <span className="text-2xl font-bold">Available Users</span>
+        <span className="text-2xl font-bold">{t('admin.available-users')}</span>
 
         <table>
           <thead className='border border-gray-400'>
             <tr>
-              <th className='border border-gray-400 p-4'>ID</th>
-              <th className='border border-gray-400 p-4'>Name</th>
-              <th className='border border-gray-400 p-4'>Email</th>
-              <th className='border border-gray-400 p-4'>Is Provider</th>
+              <th className='border border-gray-400 p-4'>{t('admin.id')}</th>
+              <th className='border border-gray-400 p-4'>{t('admin.name')}</th>
+              <th className='border border-gray-400 p-4'>{t('admin.email')}</th>
+              <th className='border border-gray-400 p-4'>{t('admin.is-provider')}</th>
             </tr>
           </thead>
 

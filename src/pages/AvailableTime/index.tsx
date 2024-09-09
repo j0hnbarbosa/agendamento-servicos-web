@@ -3,12 +3,15 @@ import RegistrationForm from './RegistrationForm'
 import { TempStateContext } from '@/context/TempStateContenxt'
 import TableDate from '@/components/TableDate'
 import api from '@/services/api'
+import { useTranslation } from 'react-i18next'
 
 const AvailableTime = () => {
   const [fields, setFields] = useState({})
   const [tempMessage, setTempMessage] = useState('')
 
   const context = useContext(TempStateContext)
+
+  const { t } = useTranslation()
 
   const handleOnChange = (key: string, value: any) => {
     setFields((prev) => ({
@@ -34,9 +37,9 @@ const AvailableTime = () => {
 
   return (
     <>
-      <div>Available Time</div>
+      <div>{t('availableTime.available-users')}</div>
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
-        <span className="text-2xl font-bold">Register</span>
+        <span className="text-2xl font-bold">{t('availableTime.register-user')}</span>
 
         <div className='flex flex-col items-center w-full justify-center'>
           <div className='w-[300px]'>

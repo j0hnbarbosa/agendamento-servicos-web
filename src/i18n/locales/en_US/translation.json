@@ -1,11 +1,73 @@
 {
   "admin": {
-    "title": "Admin Page"
+    "title": "Admin Page",
+    "available-users": "Available Users",
+    "id": "ID",
+    "name": "Name",
+    "email": "Email",
+    "is-provider": "Is Provider"
   },
-  "availableTime": {},
-  "Error": {},
-  "home": {},
-  "login": {},
-  "signup": {},
-  "worktype": {}
+  "availableTime": {
+    "available-users": "Available Users",
+    "register-user": "Register User",
+    "name-provider": "Name Provider:",
+    "start-hour": "Start Hour:",
+    "end-hour": "End Hour:",
+    "date": "Date:",
+    "work-type": "Work Type:",
+    "register": "Register"
+  },
+  "error": {
+    "oops": "Oops!",
+    "unexpected-error": "Sorry, an unexpected error has occurred.",
+    "back-home": "Click to go Home"
+  },
+  "home": {
+    "welcome": "Hello this is the App to schedule appointments",
+    "description": "To schedule an appointment, please go to the page:",
+    "register-time": "REGISTER TIME",
+    "available-appointments": "Available Appointments",
+    "id": "ID",
+    "worker": "Worker",
+    "start-hour": "Start Hour",
+    "end-hour": "End Hour",
+    "date": "Date",
+    "work-type": "Work Type"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "remember-me": "Remember me",
+    "forgot-password": "Forgot password?",
+    "login-btn": "Login",
+    "no-account": "Don't have an account? Register here"
+  },
+  "signup": {
+    "email-error": "Please enter a valid email",
+    "name": "Name",
+    "email": "Email",
+    "password": "Password",
+    "is-provider": "Are you a provider?",
+    "signup-btn": "Register",
+    "have-account": "Login here"
+  },
+  "worktype": {
+    "title": "Work Type",
+    "success-create": "Work Type successfully created",
+    "register": "Register",
+    "register-description": "Register the type of work the provider can do",
+    "work-type": "Work Type",
+    "remove": "Remove",
+    "name": "Name"
+  },
+  "navbar": {
+    "title": "Appointments",
+    "home": "Home",
+    "register-time": "Register Time",
+    "register-worktype": "Register Work Type",
+    "admin": "Admin",
+    "logout": "Logout",
+    "login": "Login"
+  }
 }

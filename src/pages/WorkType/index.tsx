@@ -1,11 +1,14 @@
 import { useState } from 'react'
 import RegistrationForm from './RegistrationForm'
 import api from '../../services/api'
+import { useTranslation } from 'react-i18next'
 
 const WorkType = () => {
   const [fields, setFields] = useState<{ name?: string }>({})
   const [workTypes, setWorkTypes] = useState([])
   const [tempMessage, setTempMessage] = useState('')
+
+  const { t } = useTranslation()
 
   const handleOnChange = (key: string, value: any) => {
     setFields((prev) => ({
@@ -21,7 +24,7 @@ const WorkType = () => {
       await api.post('/createWorkType', fields)
       const res = await api.get('/workTypes')
 
-      setTempMessage('Work Type created successfully')
+      setTempMessage(t('worktype.success-create'))
 
       setTimeout(() => {
         setTempMessage('')
@@ -46,10 +49,16 @@ const WorkType = () => {
 
   return (
     <>
-      <div>Work Type</div>
+      <div>
+        {t('worktype.title')}
+      </div>
       <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
-        <span className="text-2xl font-bold">Register</span>
-        <span className="text-sm mb-8">Cadastrar tipo de trabalho que o Provedor pode executar</span>
+        <span className="text-2xl font-bold">
+          {t('worktype.register')}
+        </span>
+        <span className="text-sm mb-8">
+          {t('worktype.register-description')}
+        </span>
 
         <div className='flex w-full justify-center flex-col items-center'>
           <div className='w-[300px]'>
@@ -68,7 +77,9 @@ const WorkType = () => {
           <table className='mt-10'>
             <thead className='border border-gray-400'>
               <tr>
-                <th className='border border-gray-400 p-2'>Tipo trabalho</th>
+                <th className='border border-gray-400 p-2'>
+                  {t('worktype.work-type')}
+                </th>
               </tr>
             </thead>
 
@@ -78,7 +89,12 @@ const WorkType = () => {
                   {element?.name}
                 </td>
                 {<td className='border border-gray-400 p-4' >
-                  <button onClick={() => handleRemove(element.id)} className='bg-red-500 text-white p-2 rounded-md hover:bg-red-700'>Remove</button>
+                  <button
+                    onClick={() => handleRemove(element.id)}
+                    className='bg-red-500 text-white p-2 rounded-md hover:bg-red-700'
+                  >
+                    {t('worktype.remove')}
+                  </button>
                 </td>}
               </tr>
             ))}

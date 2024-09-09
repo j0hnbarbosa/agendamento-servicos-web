@@ -12,9 +12,22 @@ VITE_BUILD_PATH=dist
 
 ## Install and Run project
 ```bash
+# instalar dependência
 npm install
 
+# Executar projeto
 npm run dev
 ```
 
+## O projeto também pode ser executado dentro de um container Docker:
+Baixe o Docker na sua máquina [here](https://www.docker.com/products/docker-desktop/)
 
+```bash
+# Executar projeto
+docker-compose up -d
+
+# Parar execução do projeto
+docker-compose down
+```
+
+## O projeto será executado em: http://localhost:3000

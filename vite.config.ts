@@ -10,6 +10,8 @@ export default ({ mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
+        '@/assets': path.resolve(__dirname, './src/assets'),
+
       },
     },
     plugins: [react()],

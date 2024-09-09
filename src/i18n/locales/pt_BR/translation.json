@@ -1,11 +1,73 @@
 {
   "admin": {
-    "title": "Admin Page"
+    "title": "Página de Administração",
+    "available-users": "Usuários Disponíveis",
+    "id": "ID",
+    "name": "Nome",
+    "email": "E-mail",
+    "is-provider": "É Provedor"
   },
-  "availableTime": {},
-  "Error": {},
-  "home": {},
-  "login": {},
-  "signup": {},
-  "worktype": {}
+  "availableTime": {
+    "available-users": "Usuários Disponíveis",
+    "register-user": "Registrar Usuário",
+    "name-provider": "Nome do Provedor:",
+    "start-hour": "Hora de Início:",
+    "end-hour": "Hora de Término:",
+    "date": "Data:",
+    "work-type": "Tipo de Trabalho:",
+    "register": "Registrar"
+  },
+  "error": {
+    "oops": "Ops!",
+    "unexpected-error": "Desculpe, ocorreu um erro inesperado.",
+    "back-home": "Clique para voltar à Página Inicial"
+  },
+  "home": {
+    "welcome": "Olá, este é o App para agendar compromissos",
+    "description": "Para agendar um compromisso, por favor vá para a página:",
+    "register-time": "REGISTRAR HORÁRIO",
+    "available-appointments": "Compromissos Disponíveis",
+    "id": "ID",
+    "worker": "Trabalhador",
+    "start-hour": "Hora de Início",
+    "end-hour": "Hora de Término",
+    "date": "Data",
+    "work-type": "Tipo de Trabalho"
+  },
+  "login": {
+    "title": "Login",
+    "email": "E-mail",
+    "password": "Senha",
+    "remember-me": "Lembrar-me",
+    "forgot-password": "Esqueceu a senha?",
+    "login-btn": "Entrar",
+    "no-account": "Não tem uma conta? Registre-se aqui"
+  },
+  "signup": {
+    "email-error": "Por favor, digite um e-mail válido",
+    "name": "Nome",
+    "email": "E-mail",
+    "password": "Senha",
+    "is-provider": "Você é um provedor?",
+    "signup-btn": "Registrar",
+    "have-account": "Faça login aqui"
+  },
+  "worktype": {
+    "title": "Tipo de Trabalho",
+    "success-create": "Tipo de Trabalho criado com sucesso",
+    "register": "Registrar",
+    "register-description": "Registre o tipo de trabalho que o provedor pode realizar",
+    "work-type": "Tipo de Trabalho",
+    "remove": "Remover",
+    "name": "Nome"
+  },
+  "navbar": {
+    "title": "Compromissos",
+    "home": "Página Inicial",
+    "register-time": "Registrar Horário",
+    "register-worktype": "Registrar Tipo de Trabalho",
+    "admin": "Administração",
+    "logout": "Sair",
+    "login": "Entrar"
+  }
 }
