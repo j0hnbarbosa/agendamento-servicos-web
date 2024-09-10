@@ -58,6 +58,10 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
       handleSetToken(res.data.token)
 
       navigate('/admin', { replace: true })
+
+      setEmail('')
+      setPassword('')
+      setError('')
     } catch (error) {
       console.log(error)
     }
@@ -66,6 +70,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   const handleLougout = () => {
     localStorage.removeItem('isAuthenticated')
     setIsAuthenticated(false)
+    setIsToShow(false)
   }
 
   const value = {
@@ -100,15 +105,14 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   })
 
   // Always check if the user is authenticated and redirect to the login page if it is not
-  useEffect(() => {
-    const isAuthenticatedLocal = localStorage.getItem('isAuthenticated')
+  const isAuthenticatedLocal = localStorage.getItem('isAuthenticated')
 
-    if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
-      navigate('/login', { replace: true })
-    } else if (isAuthenticatedLocal && window.location.pathname === '/login') {
-      navigate('/', { replace: true })
-    }
-  })
+  if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
+    navigate('/login', { replace: true })
+    return null
+  } else if (isAuthenticatedLocal && window.location.pathname === '/login') {
+    navigate('/', { replace: true })
+  }
 
   return (
     <BridgeGuardContext.Provider value={value}>

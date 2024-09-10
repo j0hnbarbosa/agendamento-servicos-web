@@ -1,10 +1,21 @@
+import { FC } from "react"
 import { useTranslation } from "react-i18next"
 
-const RegistrationForm = ({
-  onChange,
-  fields,
-  onConfirm,
-}) => {
+export interface Props {
+  onChange: (key: string, value: string) => void
+  onConfirm: () => void
+  fields: {
+    name?: string
+  }
+}
+
+const RegistrationForm: FC<Props> = (props) => {
+  const {
+    onChange,
+    onConfirm,
+    fields,
+  } = props
+
   const { t } = useTranslation()
 
   const handleSubmit = (e) => {

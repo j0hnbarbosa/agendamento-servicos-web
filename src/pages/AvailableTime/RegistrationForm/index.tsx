@@ -5,7 +5,7 @@ import "react-datepicker/dist/react-datepicker.css"
 
 import api from "@/services/api"
 import Dropdown from "@/components/Dropdown"
-import { UsersProps } from "@/pages/Admin"
+import { User } from "@/pages/Admin"
 import { useTranslation } from "react-i18next"
 
 const RegistrationForm = ({
@@ -14,7 +14,7 @@ const RegistrationForm = ({
   onConfirm,
 }) => {
   const [workTypes, setWorkTypes] = useState([])
-  const [users, setUsers] = useState<UsersProps[]>([])
+  const [users, setUsers] = useState<User[]>([])
   const isDisabled = !fields['userId'] || !fields['startHour'] || !fields['endHour'] || !fields['workTypeId'] || !fields['date']
 
   const { t } = useTranslation()
@@ -30,7 +30,7 @@ const RegistrationForm = ({
         const res = await api.get('/workTypes')
         setWorkTypes(res.data)
 
-        const resp = await api.get<UsersProps[]>('/users')
+        const resp = await api.get<User[]>('/users')
         setUsers(resp.data)
       } catch (error) {
         console.log(error)

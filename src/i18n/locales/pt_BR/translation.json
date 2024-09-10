@@ -5,7 +5,8 @@
     "id": "ID",
     "name": "Nome",
     "email": "E-mail",
-    "is-provider": "É Provedor"
+    "is-provider": "É Provedor",
+    "delete": "Delete"
   },
   "availableTime": {
     "available-users": "Usuários Disponíveis",
@@ -29,10 +30,10 @@
     "available-appointments": "Compromissos Disponíveis",
     "id": "ID",
     "worker": "Trabalhador",
-    "start-hour": "Hora de Início",
-    "end-hour": "Hora de Término",
+    "start-time": "Hora de Início",
+    "end-time": "Hora de Término",
     "date": "Data",
-    "work-type": "Tipo de Trabalho"
+    "type-work": "Tipo de Trabalho"
   },
   "login": {
     "title": "Login",
@@ -59,10 +60,11 @@
     "register-description": "Registre o tipo de trabalho que o provedor pode realizar",
     "work-type": "Tipo de Trabalho",
     "remove": "Remover",
-    "name": "Nome"
+    "name": "Nome",
+    "register-new-work": "Registrar Novo Tipo de Trabalho"
   },
   "navbar": {
-    "title": "Compromissos",
+    "title": "Agendamento",
     "home": "Página Inicial",
     "register-time": "Registrar Horário",
     "register-worktype": "Registrar Tipo de Trabalho",

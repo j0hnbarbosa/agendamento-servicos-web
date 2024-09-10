@@ -1,32 +1,10 @@
-import { useEffect, useState } from 'react'
-import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
-
-export interface UsersProps {
-  id: number
-  name: string
-  email: string
-  isProvider: boolean
-}
+import useUser from '@/pages/Admin/hooks/useUser'
 
 const Admin = () => {
-  const [users, setUsers] = useState<UsersProps[]>([])
-
   const { t } = useTranslation()
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      try {
-        const resp = await api.get<UsersProps[]>('/users')
-        setUsers(resp.data)
-
-      } catch (error) {
-        console.log(error)
-      }
-    }
-
-    fetchUsers()
-  }, [])
+  const { users, handleDelete } = useUser()
 
   return (
     <div>
@@ -61,9 +39,13 @@ const Admin = () => {
                   {element?.isProvider ? 'Yes' : 'No'}
                 </td>
 
-                {/* {<td className='border border-gray-400 p-4'>
-                  <button onClick={() => onRemove(index)} className='bg-red-500 text-white p-2 rounded-md hover:bg-red-700'>Remove</button>
-                </td>} */}
+                {<td className='border border-gray-400 p-4'>
+                  <button
+                    onClick={() => handleDelete(element?.id)}
+                    className='bg-red-500 text-white p-2 rounded-md hover:bg-red-700'>
+                    {t('admin.delete')}
+                  </button>
+                </td>}
               </tr>
             ))}
           </tbody>

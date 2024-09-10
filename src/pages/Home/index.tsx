@@ -1,9 +1,10 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext } from "react"
 import { BridgeGuardContext } from "@/context/BridgeGuard"
-import api from "@/services/api"
-import { AvailableUsersProps } from "@/types"
+
 import { formatDate, formatHour } from "@/utils/getDateTime"
 import { useTranslation } from "react-i18next"
+import { Link } from "react-router-dom"
+import useAvailableHour from "./hooks/useAvailableHour"
 
 function Home() {
 
@@ -11,21 +12,9 @@ function Home() {
 
   const { t } = useTranslation()
 
-  const [availableHours, setAvailableHours] = useState<AvailableUsersProps[]>([])
-
-  const fetchAvailableHours = async () => {
-    try {
-      const res = await api.get<AvailableUsersProps[]>('/availableHours')
-
-      setAvailableHours(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  useEffect(() => {
-    fetchAvailableHours()
-  }, [])
+  const {
+    availableHours
+  } = useAvailableHour()
 
   return (
     <>
@@ -36,7 +25,12 @@ function Home() {
 
       {context.isToShow && (
         <h1 className='flex justify-center'>
-          {t('home.description')} <span className="font-bold ml-1 mr-1">{t('home.register-time')}</span>
+          {t('home.description')}
+          <Link to='/availableTime'>
+            <span className="font-bold ml-1 mr-1 text-black">
+              {t('home.register-time')}
+            </span>
+          </Link>
         </h1>
       )}
 
@@ -64,7 +58,7 @@ function Home() {
                   {element?.id}
                 </td>
                 <td className='border border-gray-400 p-4'>
-                  {element?.users.name}
+                  {element?.users?.name}
                 </td>
                 <td className='border border-gray-400 p-4'>
                   {formatDate(element?.date)}
@@ -76,7 +70,7 @@ function Home() {
                   {formatHour(element?.end_hour)}
                 </td>
                 <td className='border border-gray-400 p-4'>
-                  {element?.workTypes.name}
+                  {element?.workTypes?.name}
                 </td>
 
                 {/* {<td className='border border-gray-400 p-4'>

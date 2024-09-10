@@ -1,78 +1,45 @@
-import { useState } from 'react'
-import RegistrationForm from './RegistrationForm'
-import api from '../../services/api'
+import useWorktype from '@/pages/WorkType/hooks/useWorktype'
 import { useTranslation } from 'react-i18next'
+import ModalCreate from './ModalCreate'
 
 const WorkType = () => {
-  const [fields, setFields] = useState<{ name?: string }>({})
-  const [workTypes, setWorkTypes] = useState([])
-  const [tempMessage, setTempMessage] = useState('')
-
   const { t } = useTranslation()
 
-  const handleOnChange = (key: string, value: any) => {
-    setFields((prev) => ({
-      ...prev,
-      [key]: value
-    }))
-  }
-
-  const handleOnConfirm = async () => {
-    try {
-      if (fields?.name === '') return ''
-
-      await api.post('/createWorkType', fields)
-      const res = await api.get('/workTypes')
-
-      setTempMessage(t('worktype.success-create'))
-
-      setTimeout(() => {
-        setTempMessage('')
-      }, 2000)
-
-      setWorkTypes(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-  const handleRemove = async (id: number) => {
-    try {
-      await api.delete(`/workType/${id}`)
-      const res = await api.get('/workTypes')
-
-      setWorkTypes(res.data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  const {
+    fields,
+    workTypes,
+    tempMessage,
+    openModal,
+    handleRemove,
+    handleOnChange,
+    handleOnConfirm,
+    handleOpenModal,
+    handleCloseModal
+  } = useWorktype()
 
   return (
     <>
-      <div>
+      <div className='border-b border-gray-500 mb-1 px-2'>
         {t('worktype.title')}
       </div>
-      <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
-        <span className="text-2xl font-bold">
-          {t('worktype.register')}
-        </span>
-        <span className="text-sm mb-8">
-          {t('worktype.register-description')}
-        </span>
 
-        <div className='flex w-full justify-center flex-col items-center'>
-          <div className='w-[300px]'>
-            <RegistrationForm
-              fields={fields}
-              onChange={handleOnChange}
-              onConfirm={handleOnConfirm} />
-          </div>
+      <div className='flex justify-center'>
+        <button className='max-w-52' onClick={handleOpenModal}>
+          {t('worktype.register-new-work')}
+        </button>
+      </div>
+
+      <div className='flex w-full justify-center flex-col items-center overflow-y-auto h-[90%]'>
+        <div className='w-[300px]'>
           {tempMessage && (
             <div className='text-green-600'>
               {tempMessage}
-            </div>)}
+            </div>
+          )}
         </div>
+      </div>
 
+      <div className='flex justify-center'>
         {workTypes.length > 0 && (
           <table className='mt-10'>
             <thead className='border border-gray-400'>
@@ -98,9 +65,17 @@ const WorkType = () => {
                 </td>}
               </tr>
             ))}
-          </table>)
-        }
-      </section >
+          </table>
+        )}
+      </div>
+
+      < ModalCreate
+        open={openModal}
+        onClose={handleCloseModal}
+        fields={fields}
+        onChange={handleOnChange}
+        onConfirm={handleOnConfirm}
+      />
 
     </>
   )

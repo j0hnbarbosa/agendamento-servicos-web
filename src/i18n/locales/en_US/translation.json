@@ -5,7 +5,8 @@
     "id": "ID",
     "name": "Name",
     "email": "Email",
-    "is-provider": "Is Provider"
+    "is-provider": "Is Provider",
+    "delete": "Delete"
   },
   "availableTime": {
     "available-users": "Available Users",
@@ -23,16 +24,16 @@
     "back-home": "Click to go Home"
   },
   "home": {
-    "welcome": "Hello this is the App to schedule appointments",
+    "welcome": "Hello, this is the App to schedule appointments",
     "description": "To schedule an appointment, please go to the page:",
     "register-time": "REGISTER TIME",
     "available-appointments": "Available Appointments",
     "id": "ID",
     "worker": "Worker",
-    "start-hour": "Start Hour",
-    "end-hour": "End Hour",
+    "start-time": "Start Hour",
+    "end-time": "End Hour",
     "date": "Date",
-    "work-type": "Work Type"
+    "type-work": "Work Type"
   },
   "login": {
     "title": "Login",
@@ -59,7 +60,8 @@
     "register-description": "Register the type of work the provider can do",
     "work-type": "Work Type",
     "remove": "Remove",
-    "name": "Name"
+    "name": "Name",
+    "register-new-work": "Register New Work Type"
   },
   "navbar": {
     "title": "Appointments",

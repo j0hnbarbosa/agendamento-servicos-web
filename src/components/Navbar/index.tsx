@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import styles from "@/components/Navbar/Navbar.module.scss"
 import { BridgeGuardContext } from "@/context/BridgeGuard"
 import { Link } from 'react-router-dom'
@@ -22,11 +22,19 @@ function Navbar() {
 
   const WIDTH_IMG = 26
 
+  useEffect(() => {
+    const lang = localStorage.getItem("i18nextLng")
+    if (lang) {
+      i18n.changeLanguage(lang)
+    }
+  }, [])
+
   return (
     <div className={`${styles.navbar} mb-8 `}>
       <h1 className={`${styles.navbarBrand}`}>
         {t('navbar.title')}
       </h1>
+
       <nav>
         <ul>
           <li>
@@ -46,9 +54,10 @@ function Navbar() {
               </button>
             </div>
           </li>
-          <li><Link to="/">
+
+          {isToShow && <li><Link to="/">
             {t('navbar.home')}
-          </Link></li>
+          </Link></li>}
           {isToShow && <li><Link to={"/availableTime"} >
             {t('navbar.register-time')}
           </Link>
@@ -64,9 +73,11 @@ function Navbar() {
             {t('navbar.logout')}
           </button>
           </li>}
-          {!isToShow && <li><Link to="/login">
-            {t('navbar.login')}
-          </Link>
+
+          {!isToShow && <li>
+            <Link to="/login">
+              {t('navbar.login')}
+            </Link>
           </li>}
         </ul>
       </nav>
