@@ -9,6 +9,7 @@ import AvailableTime from "@/pages/AvailableTime"
 import Home from "@/pages/Home"
 import WorkType from "@/pages/WorkType"
 import { BridgeGuardProvider } from "@/context/BridgeGuard"
+import Users from "@/pages/Users"
 
 const routerPaths = createBrowserRouter([
   {

@@ -4,13 +4,15 @@ import styles from './Modal.module.scss'
 interface ModalProps extends PropsWithChildren {
   open: boolean
   onClose: () => void
+  className?: string
 }
 
 const Modal: FC<ModalProps> = (props) => {
   const {
     open,
     children,
-    onClose
+    onClose,
+    className
   } = props
 
   if (!open) return null
@@ -20,7 +22,7 @@ const Modal: FC<ModalProps> = (props) => {
       <div className={styles.overlay} onClick={onClose} />
 
       <div className={styles.centered}>
-        <div className={styles.modal}>
+        <div className={`${styles.modal} ${className}`}>
           {children}
         </div>
       </div>

@@ -6,7 +6,9 @@
     "name": "Name",
     "email": "Email",
     "is-provider": "Is Provider",
-    "delete": "Delete"
+    "delete": "Delete",
+    "create": "Create",
+    "edit": "Edit"
   },
   "availableTime": {
     "available-users": "Available Users",
@@ -45,13 +47,16 @@
     "no-account": "Don't have an account? Register here"
   },
   "signup": {
-    "email-error": "Please enter a valid email",
+    "email-error": "Email already registered",
     "name": "Name",
     "email": "Email",
     "password": "Password",
     "is-provider": "Are you a provider?",
     "signup-btn": "Register",
-    "have-account": "Login here"
+    "edit-btn": "Save",
+    "have-account": "Login here",
+    "title": "Register",
+    "password-validation": "Invalid Password Field"
   },
   "worktype": {
     "title": "Work Type",

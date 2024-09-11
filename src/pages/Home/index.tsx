@@ -20,7 +20,6 @@ function Home() {
     <>
       <h1 className='flex justify-center mb-8'>
         {t('home.welcome')}
-
       </h1>
 
       {context.isToShow && (

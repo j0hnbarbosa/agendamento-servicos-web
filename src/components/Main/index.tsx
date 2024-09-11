@@ -6,7 +6,7 @@ interface MainProps extends React.PropsWithChildren {
 
 const Main: React.FC<MainProps> = ({ children }) => {
   return (
-    <main>
+    <main className="px-2">
       {children}
     </main>
   )

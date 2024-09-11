@@ -6,7 +6,9 @@
     "name": "Nome",
     "email": "E-mail",
     "is-provider": "É Provedor",
-    "delete": "Delete"
+    "delete": "Deletar",
+    "create": "Criar",
+    "edit": "Editar"
   },
   "availableTime": {
     "available-users": "Usuários Disponíveis",
@@ -45,13 +47,16 @@
     "no-account": "Não tem uma conta? Registre-se aqui"
   },
   "signup": {
-    "email-error": "Por favor, digite um e-mail válido",
+    "email-error": "E-mail já registrado",
     "name": "Nome",
     "email": "E-mail",
     "password": "Senha",
     "is-provider": "Você é um provedor?",
     "signup-btn": "Registrar",
-    "have-account": "Faça login aqui"
+    "edit-btn": "Salvar",
+    "have-account": "Faça login aqui",
+    "title": "Registrar",
+    "password-validation": "Campo de Senha inválida"
   },
   "worktype": {
     "title": "Tipo de Trabalho",

@@ -55,24 +55,38 @@ function Navbar() {
             </div>
           </li>
 
-          {isToShow && <li><Link to="/">
-            {t('navbar.home')}
-          </Link></li>}
-          {isToShow && <li><Link to={"/availableTime"} >
-            {t('navbar.register-time')}
-          </Link>
-          </li>}
-          {isToShow && <li><Link to={"/workType"} >
-            {t('navbar.register-worktype')}
-          </Link>
-          </li>}
-          {isToShow && <li><Link to="/admin" >
-            {t('navbar.admin')}
-          </Link></li>}
-          {isToShow && <li><button className="p-0" onClick={handleLougout}>
-            {t('navbar.logout')}
-          </button>
-          </li>}
+          {isToShow && (
+            <>
+              <li>
+                <Link to="/">
+                  {t('navbar.home')}
+                </Link>
+              </li>
+
+              <li>
+                <Link to={"/availableTime"} >
+                  {t('navbar.register-time')}
+                </Link>
+              </li>
+
+              <li>
+                <Link to={"/workType"} >
+                  {t('navbar.register-worktype')}
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/admin" >
+                  {t('navbar.admin')}
+                </Link>
+              </li>
+
+              <li><button className="p-0" onClick={handleLougout}>
+                {t('navbar.logout')}
+              </button>
+              </li>
+            </>
+          )}
 
           {!isToShow && <li>
             <Link to="/login">

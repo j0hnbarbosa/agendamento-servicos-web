@@ -3,4 +3,5 @@ export interface User {
   name: string
   email: string
   isProvider: boolean
+  createdAt: string
 }

@@ -109,7 +109,6 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
 
   if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
     navigate('/login', { replace: true })
-    return null
   } else if (isAuthenticatedLocal && window.location.pathname === '/login') {
     navigate('/', { replace: true })
   }
