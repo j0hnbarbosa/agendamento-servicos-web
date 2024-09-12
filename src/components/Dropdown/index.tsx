@@ -22,6 +22,7 @@ function Dropdown({
     <div className="relative">
       <input
         type="text"
+        onChange={() => { }}
         onClick={(e) => {
           e.preventDefault()
 

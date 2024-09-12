@@ -27,7 +27,7 @@
   },
   "home": {
     "welcome": "Hello, this is the App to schedule appointments",
-    "description": "To schedule an appointment, please go to the page:",
+    "description": "To schedule an appointment:",
     "register-time": "REGISTER TIME",
     "available-appointments": "Available Appointments",
     "id": "ID",
@@ -35,7 +35,8 @@
     "start-time": "Start Hour",
     "end-time": "End Hour",
     "date": "Date",
-    "type-work": "Work Type"
+    "type-work": "Work Type",
+    "create-appointment": "New Appointment"
   },
   "login": {
     "title": "Login",
@@ -57,6 +58,7 @@
     "have-account": "Login here",
     "title": "Register",
     "password-validation": "Invalid Password Field"
+
   },
   "worktype": {
     "title": "Work Type",

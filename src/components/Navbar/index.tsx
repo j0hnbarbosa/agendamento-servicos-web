@@ -32,7 +32,9 @@ function Navbar() {
   return (
     <div className={`${styles.navbar} mb-8 `}>
       <h1 className={`${styles.navbarBrand}`}>
-        {t('navbar.title')}
+        <Link className="text-white no-underline hover:text-white" to='/'>
+          {t('navbar.title')}
+        </Link>
       </h1>
 
       <nav>
@@ -60,12 +62,6 @@ function Navbar() {
               <li>
                 <Link to="/">
                   {t('navbar.home')}
-                </Link>
-              </li>
-
-              <li>
-                <Link to={"/availableTime"} >
-                  {t('navbar.register-time')}
                 </Link>
               </li>
 

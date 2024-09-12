@@ -5,11 +5,9 @@ import ErrorPage from "@/pages/Errors"
 import Admin from "@/pages/Admin"
 import Login from "@/pages/Login"
 import Signup from "@/pages/Signup"
-import AvailableTime from "@/pages/AvailableTime"
 import Home from "@/pages/Home"
 import WorkType from "@/pages/WorkType"
 import { BridgeGuardProvider } from "@/context/BridgeGuard"
-import Users from "@/pages/Users"
 
 const routerPaths = createBrowserRouter([
   {
@@ -28,11 +26,6 @@ const routerPaths = createBrowserRouter([
       {
         path: "/admin",
         element: <Admin />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/availableTime",
-        element: <AvailableTime />,
         errorElement: <ErrorPage />,
       },
       {

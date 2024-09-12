@@ -27,7 +27,7 @@
   },
   "home": {
     "welcome": "Olá, este é o App para agendar compromissos",
-    "description": "Para agendar um compromisso, por favor vá para a página:",
+    "description": "Para agendar um compromisso:",
     "register-time": "REGISTRAR HORÁRIO",
     "available-appointments": "Compromissos Disponíveis",
     "id": "ID",
@@ -35,7 +35,8 @@
     "start-time": "Hora de Início",
     "end-time": "Hora de Término",
     "date": "Data",
-    "type-work": "Tipo de Trabalho"
+    "type-work": "Tipo de Trabalho",
+    "create-appointment": "Novo Compromisso"
   },
   "login": {
     "title": "Login",

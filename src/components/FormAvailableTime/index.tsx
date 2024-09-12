@@ -1,16 +1,24 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, FC } from "react"
 import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
 
 import api from "@/services/api"
 import Dropdown from "@/components/Dropdown"
-import { User } from "@/pages/Admin"
+import { User } from "@/types"
 import { useTranslation } from "react-i18next"
 
-const RegistrationForm = ({
+type fieldsType = 'userId' | 'startHour' | 'endHour' | 'workTypeId' | 'date'
+
+export interface FormAvailableTimeProps {
+  onChange: (key: string, value: any) => void
+  fields: {[key in fieldsType]: any}
+  onConfirm: () => void
+}
+
+const FormAvailableTime: FC<FormAvailableTimeProps> = ({
   onChange,
-  fields,
+  fields = {},
   onConfirm,
 }) => {
   const [workTypes, setWorkTypes] = useState([])
@@ -51,7 +59,7 @@ const RegistrationForm = ({
         />
       </label>
 
-      <label>
+      <label className="w-fit">
         {t('availableTime.start-hour')}
         <div>
           <DatePicker
@@ -61,12 +69,12 @@ const RegistrationForm = ({
             showTimeSelectOnly
             timeIntervals={30}
             timeCaption="Hour"
-            dateFormat="HH:MM"
+            dateFormat="HH:mm"
           />
         </div>
       </label>
 
-      <label>
+      <label className="w-fit">
         {t('availableTime.end-hour')}
         <div>
           <DatePicker
@@ -75,19 +83,20 @@ const RegistrationForm = ({
             showTimeSelect
             showTimeSelectOnly
             timeIntervals={30}
-            timeCaption="Hour"
-            dateFormat="HH:MM"
+            // timeCaption="Hour"
+            dateFormat="HH:mm"
           />
         </div>
       </label>
 
-      <label>
+      <label className="w-fit">
         {t('availableTime.date')}
         <div>
           <DatePicker
             dateFormat="dd/MM/yyyy"
             selected={fields['date'] || ''}
             onChange={(date: any) => onChange('date', date)}
+            minDate={new Date()}
           />
         </div>
       </label>
@@ -108,5 +117,5 @@ const RegistrationForm = ({
   )
 }
 
-export default RegistrationForm
+export default FormAvailableTime
 
