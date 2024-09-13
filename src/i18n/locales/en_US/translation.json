@@ -7,8 +7,9 @@
     "email": "Email",
     "is-provider": "Is Provider",
     "delete": "Delete",
-    "create": "Create",
-    "edit": "Edit"
+    "create": "Create User",
+    "edit": "Edit",
+    "profile-pic-upload": "Upload Profile Image"
   },
   "availableTime": {
     "available-users": "Available Users",

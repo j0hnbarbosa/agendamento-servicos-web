@@ -27,9 +27,9 @@ function Home() {
   return (
     <>
       <Main>
-        <h1 className='flex justify-center mb-8'>
+        <div className='border-b border-gray-500 mb-1 px-2'>
           {t('home.welcome')}
-        </h1>
+        </div>
 
         {context.isToShow && (
           <h1 className='flex justify-center items-center gap-2'>
@@ -43,7 +43,7 @@ function Home() {
           </h1>
         )}
 
-        <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
+        <section className='flex flex-col justify-center items-center my-4 p-8'>
           <span className="text-2xl font-bold mb-4">
             {t('home.available-appointments')}
           </span>

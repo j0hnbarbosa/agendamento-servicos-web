@@ -26,8 +26,11 @@ const Admin = () => {
     <>
       <Main>
         <div>
-          <h1>{t("admin.title")}</h1>
-          <div className='flex justify-end w-full p-x'>
+          <div className='border-b border-gray-500 mb-1 px-2'>
+            {t("admin.title")}
+          </div>
+
+          <div className='flex justify-center w-full p-x'>
             <button
               onClick={handleOpenCreateModal}
               className='max-w-[180px] text-white p-2 rounded-md'>
@@ -35,7 +38,7 @@ const Admin = () => {
             </button>
           </div>
 
-          <section className='flex flex-col justify-center items-center my-4 p-8 border border-gray-500'>
+          <section className='flex flex-col justify-center items-center my-4 p-8'>
             <span className="text-2xl font-bold">
               {t('admin.available-users')}
             </span>

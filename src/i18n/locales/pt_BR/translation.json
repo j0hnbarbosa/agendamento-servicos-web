@@ -7,8 +7,9 @@
     "email": "E-mail",
     "is-provider": "É Provedor",
     "delete": "Deletar",
-    "create": "Criar",
-    "edit": "Editar"
+    "create": "Criar Usuário",
+    "edit": "Editar",
+    "profile-pic-upload": "Upload de Imagem de Perfil"
   },
   "availableTime": {
     "available-users": "Usuários Disponíveis",
