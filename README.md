@@ -28,10 +28,10 @@ Baixe o Docker na sua máquina [here](https://www.docker.com/products/docker-des
 docker build -t agendamento-servicos-web .
 
 # Executar projeto
-docker-compose up -d
+docker compose up -d
 
 # Parar execução do projeto
-docker-compose down
+docker compose down
 ```
 
 ## O projeto será executado em: http://localhost:5000
