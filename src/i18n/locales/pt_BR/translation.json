@@ -78,5 +78,9 @@
     "admin": "Administração",
     "logout": "Sair",
     "login": "Entrar"
+  },
+  "common": {
+    "yes": "Sim",
+    "no": "Não"
   }
 }

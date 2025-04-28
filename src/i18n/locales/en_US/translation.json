@@ -59,7 +59,6 @@
     "have-account": "Login here",
     "title": "Register",
     "password-validation": "Invalid Password Field"
-
   },
   "worktype": {
     "title": "Work Type",
@@ -79,5 +78,9 @@
     "admin": "Admin",
     "logout": "Logout",
     "login": "Login"
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No"
   }
 }

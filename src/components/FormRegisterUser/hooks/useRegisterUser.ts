@@ -1,7 +1,8 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react'
 import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import { TempStateContext } from '@/context/TempStateContenxt'
 
 export interface RegisterUserProps {
   isSignup?: boolean
@@ -25,6 +26,10 @@ export const useRegisterUser = (props: RegisterUserProps) => {
   const [password, setPassword] = useState('')
   const [isProvider, setIsProvider] = useState(false)
   const [error, setError] = useState('')
+
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const {
     isSignup = false,
@@ -57,6 +62,11 @@ export const useRegisterUser = (props: RegisterUserProps) => {
   const handleCreateUser = async () => {
     if (!password.trim()) {
       setError(`${t('signup.password-validation')}`)
+
+      showToast({
+        message: `${t('signup.password-validation')}`,
+        type: 'error',
+      })
       return
     }
 
@@ -65,6 +75,11 @@ export const useRegisterUser = (props: RegisterUserProps) => {
     if (res?.data?.error === 'Validation error') {
       setError(`${res?.data?.error || ''} - ${t('signup.email-error')}`)
       console.log('res?.data', res?.data)
+
+      showToast({
+        message: `${res?.data?.error || ''} - ${t('signup.email-error')}`,
+        type: 'error',
+      })
     } else if (isSignup) {
       navigate('/login')
     } else {
@@ -89,6 +104,11 @@ export const useRegisterUser = (props: RegisterUserProps) => {
     if (res?.data?.error === 'Validation error') {
       setError(`${res?.data?.error || ''} - ${t('signup.email-error')}`)
       console.log('res?.data', res?.data)
+
+      showToast({
+        message: `${res?.data?.error || ''} - ${t('signup.email-error')}`,
+        type: 'error',
+      })
     } else {
       onClose()
     }
@@ -110,10 +130,17 @@ export const useRegisterUser = (props: RegisterUserProps) => {
         await handleEditUser()
       }
 
-      await refetchUsers()
+      if (refetchUsers) {
+        await refetchUsers()
+      }
     } catch (error) {
       setError(error?.response?.data?.message)
       console.log(error)
+
+      showToast({
+        message: "Something went wrong!",
+        type: 'error',
+      })
     }
   }
 

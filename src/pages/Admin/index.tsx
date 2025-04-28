@@ -66,7 +66,7 @@ const Admin = () => {
                       {element?.email}
                     </td>
                     <td className='border border-gray-400 p-4'>
-                      {element?.isProvider ? 'Yes' : 'No'}
+                      {element?.isProvider ? t("common.yes") : t("common.no")}
                     </td>
 
                     <td className='border border-gray-400 p-4'>

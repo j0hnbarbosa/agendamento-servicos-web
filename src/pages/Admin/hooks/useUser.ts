@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import api from '@/services/api'
 import { User } from '@/types'
+import { TempStateContext } from '@/context/TempStateContenxt'
 
 const useUser = () => {
   const [users, setUsers] = useState<User[]>([])
@@ -8,6 +9,10 @@ const useUser = () => {
   const [openCreateModal, setOpenCreateModal] = useState(false)
   const [currenUserToEdit, setCurrentUserToEdit] = useState<User>()
   const [openEditModal, setOpenEditModal] = useState(false)
+
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const handleDelete = async (id: number) => {
     setLoading(true)
@@ -18,6 +23,10 @@ const useUser = () => {
 
     } catch (error) {
       console.log(error)
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
 
     setLoading(false)
@@ -48,6 +57,11 @@ const useUser = () => {
 
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 

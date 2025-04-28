@@ -5,7 +5,7 @@
 ## Crie um arquivo chamado ***.env*** na raiz do projeto e adicione:
 
 ```bash
-VITE_URL_API=http://localhost:3001/api/v1
+VITE_URL_API=http://localhost:5001/api/v1
 
 VITE_BUILD_PATH=dist
 ```
@@ -22,7 +22,11 @@ npm run dev
 ## O projeto também pode ser executado dentro de um container Docker:
 Baixe o Docker na sua máquina [here](https://www.docker.com/products/docker-desktop/)
 
+
 ```bash
+ ## Esse comando conta com um PONTO no final que indica o local de onde será pego os arquivos
+docker build -t agendamento-servicos-web .
+
 # Executar projeto
 docker-compose up -d
 
@@ -30,4 +34,4 @@ docker-compose up -d
 docker-compose down
 ```
 
-## O projeto será executado em: http://localhost:3000
+## O projeto será executado em: http://localhost:5000

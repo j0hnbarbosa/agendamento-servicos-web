@@ -7,5 +7,5 @@ RUN npm install
 COPY . .
 RUN chown -R app /opt/app
 USER app
-EXPOSE 3000
+EXPOSE 5000
 CMD [ "npm", "run", "dev" ]

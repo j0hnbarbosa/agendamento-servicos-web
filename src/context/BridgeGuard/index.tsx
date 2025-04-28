@@ -1,6 +1,7 @@
-import React, { ReactNode, createContext, useEffect, useState } from 'react'
+import React, { ReactNode, createContext, useContext, useEffect, useState } from 'react'
 import api, { handleSetToken } from '@/services/api'
 import { useNavigate } from 'react-router-dom'
+import { TempStateContext } from '../TempStateContenxt'
 
 interface BridgeGuardProviderProps {
   isAuthenticated: boolean
@@ -28,6 +29,10 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   const [error, setError] = useState('')
 
   const navigate = useNavigate()
+
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const isDisabled = email === '' || password === ''
 
@@ -64,6 +69,11 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
       setError('')
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 

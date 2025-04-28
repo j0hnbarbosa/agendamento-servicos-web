@@ -22,6 +22,8 @@ function Navbar() {
 
   const WIDTH_IMG = 26
 
+  const selectedURI = window.location.pathname
+
   useEffect(() => {
     const lang = localStorage.getItem("i18nextLng")
     if (lang) {
@@ -30,7 +32,7 @@ function Navbar() {
   }, [])
 
   return (
-    <div className={`${styles.navbar} mb-8 `}>
+    <div className={`${styles.navbar} mb-8`}>
       <h1 className={`${styles.navbarBrand}`}>
         <Link className="text-white no-underline hover:text-white" to='/'>
           {t('navbar.title')}
@@ -60,19 +62,19 @@ function Navbar() {
           {isToShow && (
             <>
               <li>
-                <Link to="/">
+                <Link to="/" className={selectedURI === '/' ? 'text-black' : ''}>
                   {t('navbar.home')}
                 </Link>
               </li>
 
               <li>
-                <Link to={"/workType"} >
+                <Link to={"/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
                   {t('navbar.register-worktype')}
                 </Link>
               </li>
 
               <li>
-                <Link to="/admin" >
+                <Link to="/admin" className={selectedURI === '/admin' ? 'text-black' : ''}>
                   {t('navbar.admin')}
                 </Link>
               </li>
@@ -85,7 +87,7 @@ function Navbar() {
           )}
 
           {!isToShow && <li>
-            <Link to="/login">
+            <Link to="/login" className={selectedURI === '/login' ? 'text-black' : ''}>
               {t('navbar.login')}
             </Link>
           </li>}

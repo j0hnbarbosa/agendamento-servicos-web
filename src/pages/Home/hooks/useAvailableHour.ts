@@ -1,8 +1,9 @@
 
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import api from "@/services/api"
-import { AvailableUsersProps } from "@/types"
+import { AvailableUsersProps, } from "@/types"
+import { TempStateContext } from "@/context/TempStateContenxt"
 
 type fieldsType = 'userId' | 'startHour' | 'endHour' | 'workTypeId' | 'date'
 
@@ -10,6 +11,10 @@ const useAvailableHour = () => {
   const [availableHours, setAvailableHours] = useState<AvailableUsersProps[]>([])
   const [fields, setFields] = useState<{ [key in fieldsType] }>()
   const [open, setOpen] = useState(false)
+
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const handleOpen = () => {
     setOpen(true)
@@ -26,6 +31,11 @@ const useAvailableHour = () => {
       setAvailableHours(res.data)
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 
@@ -35,6 +45,11 @@ const useAvailableHour = () => {
       fetchAvailableHours()
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 
@@ -55,6 +70,11 @@ const useAvailableHour = () => {
 
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 

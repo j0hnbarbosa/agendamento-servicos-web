@@ -1,3 +1,4 @@
+import { Toast, useToast } from '@/components/MessageToast'
 import { createContext, useState } from 'react'
 
 export interface AvailableTimeProps {
@@ -10,21 +11,39 @@ export interface AvailableTimeProps {
 interface TempStateContextProps {
   setFields: (fields: AvailableTimeProps[]) => void
   fields: AvailableTimeProps[]
+  showToast: ({
+    message,
+    type
+  }: {
+    message: string
+    type: 'success' | 'error' | 'warning'
+  }) => void
 }
 
 export const TempStateContext = createContext({} as TempStateContextProps)
 
 export const TempStateContextProvider = ({ children }: { children: React.ReactNode }) => {
   const [fields, setFields] = useState<AvailableTimeProps[]>([])
+  const { showToast, toastState } = useToast()
 
   const values = {
     setFields,
-    fields
+    fields,
+    showToast
   }
 
   return (
+
     <TempStateContext.Provider value={values}>
-      {children}
+      <>
+        <Toast
+          isVisible={toastState.isVisible}
+          message={toastState.message}
+          type={toastState.type}
+        />
+
+        {children}
+      </>
     </TempStateContext.Provider>
   )
 }

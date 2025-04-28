@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
+import { TempStateContext } from '@/context/TempStateContenxt'
 
 const useWorktype = () => {
   const [fields, setFields] = useState<{ name?: string }>({})
@@ -9,6 +10,10 @@ const useWorktype = () => {
   const [openModal, setOpenModal] = useState(false)
 
   const { t } = useTranslation()
+
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const handleOnChange = (key: string, value: any) => {
     setFields((prev) => ({
@@ -23,6 +28,11 @@ const useWorktype = () => {
       setWorkTypes(res.data)
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 
@@ -42,6 +52,11 @@ const useWorktype = () => {
       setFields({})
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 
@@ -52,6 +67,11 @@ const useWorktype = () => {
 
     } catch (error) {
       console.log(error)
+
+      showToast({
+        message: JSON.stringify(error),
+        type: 'error'
+      })
     }
   }
 

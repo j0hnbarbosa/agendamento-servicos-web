@@ -18,7 +18,7 @@ export default ({ mode }) => {
         usePolling: true,
       },
       host: true, // Here
-      port: 3000,
+      port: 5000,
     },
     build: {
       outDir: process.env.VITE_BUILD_PATH,

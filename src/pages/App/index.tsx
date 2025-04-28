@@ -3,10 +3,11 @@ import Navbar from '@/components/Navbar'
 import { TempStateContextProvider } from '@/context/TempStateContenxt'
 
 function App() {
+
   return (
     <div>
       <Navbar />
-    
+
       <TempStateContextProvider>
         <Outlet />
       </TempStateContextProvider>

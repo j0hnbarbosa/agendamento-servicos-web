@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from "react"
+import { useState, useEffect, FC, useContext } from "react"
 import DatePicker from "react-datepicker"
 
 import "react-datepicker/dist/react-datepicker.css"
@@ -7,6 +7,7 @@ import api from "@/services/api"
 import Dropdown from "@/components/Dropdown"
 import { User } from "@/types"
 import { useTranslation } from "react-i18next"
+import { TempStateContext } from "@/context/TempStateContenxt"
 
 type fieldsType = 'userId' | 'startHour' | 'endHour' | 'workTypeId' | 'date'
 
@@ -27,6 +28,10 @@ const FormAvailableTime: FC<FormAvailableTimeProps> = ({
 
   const { t } = useTranslation()
 
+    const {
+      showToast
+    } = useContext(TempStateContext)
+
   const handleSubmit = (e) => {
     e.preventDefault()
     onConfirm()
@@ -41,6 +46,10 @@ const FormAvailableTime: FC<FormAvailableTimeProps> = ({
         const resp = await api.get<User[]>('/users')
         setUsers(resp.data)
       } catch (error) {
+        showToast({
+          message: JSON.stringify(error),
+          type: 'error'
+        })
         console.log(error)
       }
     }
