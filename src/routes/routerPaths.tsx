@@ -9,42 +9,50 @@ import Home from "@/pages/Home"
 import WorkType from "@/pages/WorkType"
 import { BridgeGuardProvider } from "@/context/BridgeGuard"
 
-const routerPaths = createBrowserRouter([
-  {
-    element: (
-      <BridgeGuardProvider>
-        <App />
-      </BridgeGuardProvider>
-    ),
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/admin",
-        element: <Admin />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/workType",
-        element: <WorkType />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "/signup",
-        element: <Signup />,
-        errorElement: <ErrorPage />,
-      },
-    ]
-  }
-])
+const { VITE_BASE_URL } = import.meta.env
+
+const initBasePATH = () => {
+  const basePATH = VITE_BASE_URL
+
+  return createBrowserRouter([
+    {
+      element: (
+        <BridgeGuardProvider>
+          <App />
+        </BridgeGuardProvider>
+      ),
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: `${basePATH}/`,
+          element: <Home />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: `${basePATH}/admin`,
+          element: <Admin />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: `${basePATH}/workType`,
+          element: <WorkType />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: `${basePATH}/login`,
+          element: <Login />,
+          errorElement: <ErrorPage />,
+        },
+        {
+          path: `${basePATH}/signup`,
+          element: <Signup />,
+          errorElement: <ErrorPage />,
+        },
+      ]
+    }
+  ])
+}
+
+const routerPaths = initBasePATH()
 
 export default routerPaths

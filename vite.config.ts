@@ -5,9 +5,9 @@ import path from 'path'
 // https://vitejs.dev/config/
 export default ({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
-
+  
   return defineConfig({
-    base: './',
+    base: process.env.VITE_BASE_URL,
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
