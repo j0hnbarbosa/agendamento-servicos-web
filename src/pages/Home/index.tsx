@@ -9,7 +9,7 @@ import Main from "@/components/Main"
 
 function Home() {
 
-  const context = useContext(BridgeGuardContext)
+  const { isToShow } = useContext(BridgeGuardContext)
 
   const { t } = useTranslation()
 
@@ -24,6 +24,12 @@ function Home() {
     handleClose
   } = useAvailableHour()
 
+  if (!isToShow) return (
+    <span className="text-2xl font-bold mb-4">
+      {t('home.available-appointments')}
+    </span>
+  )
+
   return (
     <>
       <Main>
@@ -31,7 +37,7 @@ function Home() {
           {t('home.welcome')}
         </div>
 
-        {context.isToShow && (
+        {isToShow && (
           <h1 className='flex justify-center items-center gap-2'>
             {t('home.description')}
             <button

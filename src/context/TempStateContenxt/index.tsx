@@ -1,4 +1,5 @@
-import { Toast, useToast } from '@/components/MessageToast'
+import { Toast } from '@/components/MessageToast'
+import { useToast } from '@/components/MessageToast/hooks/useToast'
 import { createContext, useState } from 'react'
 
 export interface AvailableTimeProps {

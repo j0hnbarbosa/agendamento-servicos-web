@@ -1,7 +1,6 @@
 import { useContext, useEffect } from "react"
 import styles from "@/components/Navbar/Navbar.module.scss"
 import { BridgeGuardContext } from "@/context/BridgeGuard"
-import { Link } from 'react-router-dom'
 import { Language } from "@/types"
 import { useTranslation } from "react-i18next"
 import flagPTBR from "@/assets/flag-pt-br.svg"
@@ -34,9 +33,9 @@ function Navbar() {
   return (
     <div className={`${styles.navbar} mb-8`}>
       <h1 className={`${styles.navbarBrand}`}>
-        <Link className="text-white no-underline hover:text-white" to='/'>
+        <a href={`./`} className="text-white no-underline hover:text-white">
           {t('navbar.title')}
-        </Link>
+        </a>
       </h1>
 
       <nav>
@@ -62,21 +61,21 @@ function Navbar() {
           {isToShow && (
             <>
               <li>
-                <Link to="/" className={selectedURI === '/' ? 'text-black' : ''}>
+                <a href={`./`} className={selectedURI === '/' ? 'text-black' : ''}>
                   {t('navbar.home')}
-                </Link>
+                </a>
               </li>
 
               <li>
-                <Link to={"/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
+                <a href={`./workType`} className={selectedURI === '/workType' ? 'text-black' : ''}>
                   {t('navbar.register-worktype')}
-                </Link>
+                </a>
               </li>
 
               <li>
-                <Link to="/admin" className={selectedURI === '/admin' ? 'text-black' : ''}>
+                <a href={`./admin`} className={selectedURI === '/admin' ? 'text-black' : ''}>
                   {t('navbar.admin')}
-                </Link>
+                </a>
               </li>
 
               <li><button className="p-0" onClick={handleLougout}>
@@ -87,9 +86,9 @@ function Navbar() {
           )}
 
           {!isToShow && <li>
-            <Link to="/login" className={selectedURI === '/login' ? 'text-black' : ''}>
+            <a href={`./login`} className={selectedURI === '/login' ? 'text-black' : ''}>
               {t('navbar.login')}
-            </Link>
+            </a>
           </li>}
         </ul>
       </nav>

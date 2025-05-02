@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import FormRegisterUser from '@/components/FormRegisterUser'
 import Main from '@/components/Main'
@@ -15,9 +14,9 @@ const Signup = () => {
           />
 
           <div className='mt-2'>
-            <Link to="/login">
+            <a href="./login">
               {t('signup.have-account')}
-            </Link>
+            </a>
           </div>
         </div>
       </div>

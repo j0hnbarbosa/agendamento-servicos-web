@@ -81,7 +81,7 @@ export const useRegisterUser = (props: RegisterUserProps) => {
         type: 'error',
       })
     } else if (isSignup) {
-      navigate('/login')
+      navigate('/web-agenda/login')
     } else {
       onClose()
     }

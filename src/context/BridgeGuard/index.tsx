@@ -62,7 +62,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
 
       handleSetToken(res.data.token)
 
-      navigate('/admin', { replace: true })
+      navigate('web-agenda/admin', { replace: true })
 
       setEmail('')
       setPassword('')
@@ -81,6 +81,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     localStorage.removeItem('isAuthenticated')
     setIsAuthenticated(false)
     setIsToShow(false)
+    navigate('/web-agenda/login', { replace: true })
   }
 
   const value = {
@@ -111,17 +112,9 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     } else if (!isAuthenticatedLocal && isAuthenticated) {
       setIsAuthenticated(false)
       setIsToShow(false)
+      navigate('/web-agenda/login', { replace: true })
     }
   })
-
-  // Always check if the user is authenticated and redirect to the login page if it is not
-  const isAuthenticatedLocal = localStorage.getItem('isAuthenticated')
-
-  if (!isAuthenticatedLocal && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
-    navigate('/login', { replace: true })
-  } else if (isAuthenticatedLocal && window.location.pathname === '/login') {
-    navigate('/', { replace: true })
-  }
 
   return (
     <BridgeGuardContext.Provider value={value}>

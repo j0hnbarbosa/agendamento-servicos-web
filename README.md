@@ -9,7 +9,7 @@ VITE_URL_API=http://localhost:5001/api/v1
 
 VITE_BUILD_PATH=dist
 
-VITE_BASE_URL=web-agenda
+VITE_BASE_URL=/web-agenda
 ```
 
 ## Install and Run project
