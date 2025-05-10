@@ -33,7 +33,7 @@ function Navbar() {
   return (
     <div className={`${styles.navbar} mb-8`}>
       <h1 className={`${styles.navbarBrand}`}>
-        <a href={`./`} className="text-white no-underline hover:text-white">
+        <a href={`/web-agenda/`} className="text-white no-underline hover:text-white">
           {t('navbar.title')}
         </a>
       </h1>
@@ -61,19 +61,19 @@ function Navbar() {
           {isToShow && (
             <>
               <li>
-                <a href={`./`} className={selectedURI === '/' ? 'text-black' : ''}>
+                <a href={`/web-agenda/`} className={selectedURI === '/' ? 'text-black' : ''}>
                   {t('navbar.home')}
                 </a>
               </li>
 
               <li>
-                <a href={`./workType`} className={selectedURI === '/workType' ? 'text-black' : ''}>
+                <a href={`/web-agenda/workType`} className={selectedURI === '/workType' ? 'text-black' : ''}>
                   {t('navbar.register-worktype')}
                 </a>
               </li>
 
               <li>
-                <a href={`./admin`} className={selectedURI === '/admin' ? 'text-black' : ''}>
+                <a href={`/web-agenda/admin`} className={selectedURI === '/admin' ? 'text-black' : ''}>
                   {t('navbar.admin')}
                 </a>
               </li>
@@ -86,7 +86,7 @@ function Navbar() {
           )}
 
           {!isToShow && <li>
-            <a href={`./login`} className={selectedURI === '/login' ? 'text-black' : ''}>
+            <a href={`/web-agenda/login`} className={selectedURI === '/login' ? 'text-black' : ''}>
               {t('navbar.login')}
             </a>
           </li>}
