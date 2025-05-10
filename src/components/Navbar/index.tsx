@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react"
 import styles from "@/components/Navbar/Navbar.module.scss"
 import { BridgeGuardContext } from "@/context/BridgeGuard"
+import { Link } from 'react-router-dom'
 import { Language } from "@/types"
 import { useTranslation } from "react-i18next"
 import flagPTBR from "@/assets/flag-pt-br.svg"
@@ -33,9 +34,9 @@ function Navbar() {
   return (
     <div className={`${styles.navbar} mb-8`}>
       <h1 className={`${styles.navbarBrand}`}>
-        <a href={`/web-agenda/`} className="text-white no-underline hover:text-white">
+        <Link className="text-white no-underline hover:text-white" to="/web-agenda/">
           {t('navbar.title')}
-        </a>
+        </Link>
       </h1>
 
       <nav>
@@ -61,21 +62,21 @@ function Navbar() {
           {isToShow && (
             <>
               <li>
-                <a href={`/web-agenda/`} className={selectedURI === '/' ? 'text-black' : ''}>
+                <Link to="/web-agenda/" className={selectedURI === '/' ? 'text-black' : ''}>
                   {t('navbar.home')}
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href={`/web-agenda/workType`} className={selectedURI === '/workType' ? 'text-black' : ''}>
+                <Link to={"/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
                   {t('navbar.register-worktype')}
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a href={`/web-agenda/admin`} className={selectedURI === '/admin' ? 'text-black' : ''}>
+                <Link to="/web-agenda/admin" className={selectedURI === '/admin' ? 'text-black' : ''}>
                   {t('navbar.admin')}
-                </a>
+                </Link>
               </li>
 
               <li><button className="p-0" onClick={handleLougout}>
@@ -86,9 +87,9 @@ function Navbar() {
           )}
 
           {!isToShow && <li>
-            <a href={`/web-agenda/login`} className={selectedURI === '/login' ? 'text-black' : ''}>
+            <Link to="/web-agenda/login" className={selectedURI === '/login' ? 'text-black' : ''}>
               {t('navbar.login')}
-            </a>
+            </Link>
           </li>}
         </ul>
       </nav>

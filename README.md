@@ -5,7 +5,7 @@
 ## Crie um arquivo chamado ***.env*** na raiz do projeto e adicione:
 
 ```bash
-VITE_URL_API=http://localhost:5001/api/v1
+VITE_URL_API=http://localhost:5001/api-agenda/api/v1
 
 VITE_BUILD_PATH=dist
 
