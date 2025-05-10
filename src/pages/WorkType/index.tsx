@@ -1,6 +1,6 @@
 import useWorktype from '@/pages/WorkType/hooks/useWorktype'
 import { useTranslation } from 'react-i18next'
-import ModalCreate from './ModalCreate'
+import ModalCreate from '@/pages/WorkType/ModalCreate'
 import Main from '@/components/Main'
 
 const WorkType = () => {

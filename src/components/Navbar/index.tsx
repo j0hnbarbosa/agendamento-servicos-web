@@ -68,7 +68,7 @@ function Navbar() {
               </li>
 
               <li>
-                <Link to={"/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
+                <Link to={"/web-agenda/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
                   {t('navbar.register-worktype')}
                 </Link>
               </li>

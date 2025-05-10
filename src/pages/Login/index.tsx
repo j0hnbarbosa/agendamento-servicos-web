@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { BridgeGuardContext } from '../../context/BridgeGuard'
+import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Main from '@/components/Main'
 
@@ -52,9 +53,9 @@ const Login = () => {
           </form>
 
           <div className='mt-2'>
-            <a href="./signup">
+            <Link to="/web-agenda/signup">
               {t('login.no-account')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

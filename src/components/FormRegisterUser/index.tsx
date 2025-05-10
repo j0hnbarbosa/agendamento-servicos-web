@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
-import { RegisterUserProps, useRegisterUser } from "./hooks/useRegisterUser"
+import { RegisterUserProps, useRegisterUser } from "@/components/FormRegisterUser/hooks/useRegisterUser"
 import FileUpload from "@/components/FileUpload"
 
 const FormRegisterUser: FC<RegisterUserProps> = (props) => {
@@ -30,9 +30,9 @@ const FormRegisterUser: FC<RegisterUserProps> = (props) => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <h2>{t('signup.title')}</h2>
-      
+
       <FileUpload />
-      
+
       <div className="mb-4">
         <label htmlFor="name">
           {t('signup.name')}
