@@ -17,6 +17,8 @@ interface BridgeGuardProviderProps {
   error: string
   isDisabled: boolean,
   navigate: (path: string, options?: { replace: boolean }) => void
+  isLoadingLogin: boolean
+  setIsLoadingLogin: (isLoadingLogin: boolean) => void
 }
 export const BridgeGuardContext = createContext({} as BridgeGuardProviderProps)
 
@@ -27,6 +29,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [isLoadingLogin, setIsLoadingLogin] = useState(false)
 
   const navigate = useNavigate()
 
@@ -48,6 +51,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     e.preventDefault()
     try {
       setError('')
+      setIsLoadingLogin(true)
 
       const res = await api.post('/login', { email, password })
 
@@ -74,6 +78,8 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
         message: JSON.stringify(error),
         type: 'error'
       })
+    } finally {
+      setIsLoadingLogin(false)
     }
   }
 
@@ -97,7 +103,9 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
     handlePasswordChange,
     error,
     isDisabled,
-    navigate
+    navigate,
+    isLoadingLogin,
+    setIsLoadingLogin
   }
 
   // Authenticated logic.

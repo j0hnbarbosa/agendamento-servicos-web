@@ -15,6 +15,7 @@ const Login = () => {
     handlePasswordChange,
     error,
     isDisabled,
+    isLoadingLogin
   } = useContext(BridgeGuardContext)
 
   return (
@@ -30,6 +31,7 @@ const Login = () => {
                 id="email"
                 value={email}
                 onChange={handleEmailChange}
+                disabled={isLoadingLogin}
               />
             </div>
             <div className="mb-4">
@@ -41,15 +43,17 @@ const Login = () => {
                 id="password"
                 value={password}
                 onChange={handlePasswordChange}
+                disabled={isLoadingLogin}
               />
             </div>
             {
               error && <div className="text-red-700 py-3 font-bold text-sm">{error}</div>
             }
 
-            <button disabled={isDisabled} type="submit">
+            <button disabled={isDisabled || isLoadingLogin} type="submit">
               {t('login.login-btn')}
             </button>
+            {isLoadingLogin && t('common.loading')}
           </form>
 
           <div className='mt-2'>
