@@ -8,6 +8,7 @@ import Signup from "@/pages/Signup"
 import Home from "@/pages/Home"
 import WorkType from "@/pages/WorkType"
 import { BridgeGuardProvider } from "@/context/BridgeGuard"
+import { TempStateContextProvider } from "@/context/TempStateContenxt"
 
 const { VITE_BASE_URL } = import.meta.env
 
@@ -17,9 +18,11 @@ const initBasePATH = () => {
   return createBrowserRouter([
     {
       element: (
-        <BridgeGuardProvider>
-          <App />
-        </BridgeGuardProvider>
+        <TempStateContextProvider>
+          <BridgeGuardProvider>
+            <App />
+          </BridgeGuardProvider>
+        </TempStateContextProvider>
       ),
       errorElement: <ErrorPage />,
       children: [

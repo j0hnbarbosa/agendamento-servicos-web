@@ -3,6 +3,7 @@ import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { TempStateContext } from '@/context/TempStateContenxt'
+import { getError } from '@/utils/getError'
 
 export interface RegisterUserProps {
   isSignup?: boolean
@@ -138,8 +139,8 @@ export const useRegisterUser = (props: RegisterUserProps) => {
       console.log(error)
 
       showToast({
-        message: "Something went wrong!",
-        type: 'error',
+        message: getError(error),
+        type: 'error'
       })
     }
   }

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import api from '@/services/api'
 import { useTranslation } from 'react-i18next'
 import { TempStateContext } from '@/context/TempStateContenxt'
+import { getError } from '@/utils/getError'
 
 const useWorktype = () => {
   const [fields, setFields] = useState<{ name?: string }>({})
@@ -30,7 +31,7 @@ const useWorktype = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
@@ -54,7 +55,7 @@ const useWorktype = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
@@ -69,7 +70,7 @@ const useWorktype = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }

@@ -8,12 +8,13 @@ import Dropdown from "@/components/Dropdown"
 import { User } from "@/types"
 import { useTranslation } from "react-i18next"
 import { TempStateContext } from "@/context/TempStateContenxt"
+import { getError } from "@/utils/getError"
 
 type fieldsType = 'userId' | 'startHour' | 'endHour' | 'workTypeId' | 'date'
 
 export interface FormAvailableTimeProps {
   onChange: (key: string, value: any) => void
-  fields: {[key in fieldsType]: any}
+  fields: { [key in fieldsType]: any }
   onConfirm: () => void
 }
 
@@ -28,9 +29,9 @@ const FormAvailableTime: FC<FormAvailableTimeProps> = ({
 
   const { t } = useTranslation()
 
-    const {
-      showToast
-    } = useContext(TempStateContext)
+  const {
+    showToast
+  } = useContext(TempStateContext)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -47,7 +48,7 @@ const FormAvailableTime: FC<FormAvailableTimeProps> = ({
         setUsers(resp.data)
       } catch (error) {
         showToast({
-          message: JSON.stringify(error),
+          message: getError(error),
           type: 'error'
         })
         console.log(error)

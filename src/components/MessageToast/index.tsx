@@ -1,7 +1,7 @@
 // Simple Tailwind CSS classes for styling the toast
 // Assumes Tailwind CSS is set up in your project
 const toastClasses = {
-  base: 'fixed bottom-5 right-5 p-4 rounded-md shadow-lg text-white transition-opacity duration-300 ease-in-out z-50', // Added z-50 for high stacking context
+  base: 'fixed top-5 right-5 p-4 rounded-md shadow-lg text-white transition-opacity duration-300 ease-in-out z-50', // Added z-50 for high stacking context
   success: 'bg-green-500',
   warning: 'bg-yellow-500',
   error: 'bg-red-500',

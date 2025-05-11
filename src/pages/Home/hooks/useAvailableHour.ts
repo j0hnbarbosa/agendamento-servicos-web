@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import api from "@/services/api"
 import { AvailableUsersProps, } from "@/types"
 import { TempStateContext } from "@/context/TempStateContenxt"
+import { getError } from "@/utils/getError"
 
 type fieldsType = 'userId' | 'startHour' | 'endHour' | 'workTypeId' | 'date'
 
@@ -33,7 +34,7 @@ const useAvailableHour = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
@@ -47,7 +48,7 @@ const useAvailableHour = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
@@ -72,7 +73,7 @@ const useAvailableHour = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }

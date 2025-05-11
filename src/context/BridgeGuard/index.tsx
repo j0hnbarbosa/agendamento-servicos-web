@@ -2,6 +2,7 @@ import React, { ReactNode, createContext, useContext, useEffect, useState } from
 import api, { handleSetToken } from '@/services/api'
 import { useNavigate } from 'react-router-dom'
 import { TempStateContext } from '../TempStateContenxt'
+import { getError } from '@/utils/getError'
 
 interface BridgeGuardProviderProps {
   isAuthenticated: boolean
@@ -75,7 +76,7 @@ export const BridgeGuardProvider = ({ children }: { children: ReactNode }) => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     } finally {

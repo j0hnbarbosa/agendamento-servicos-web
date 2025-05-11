@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from '@/components/Navbar'
-import { TempStateContextProvider } from '@/context/TempStateContenxt'
 
 function App() {
 
@@ -8,9 +7,7 @@ function App() {
     <div>
       <Navbar />
 
-      <TempStateContextProvider>
-        <Outlet />
-      </TempStateContextProvider>
+      <Outlet />
     </div>
   )
 }

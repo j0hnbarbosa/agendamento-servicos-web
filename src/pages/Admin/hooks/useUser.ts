@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import api from '@/services/api'
 import { User } from '@/types'
 import { TempStateContext } from '@/context/TempStateContenxt'
+import { getError } from '@/utils/getError'
 
 const useUser = () => {
   const [users, setUsers] = useState<User[]>([])
@@ -23,8 +24,9 @@ const useUser = () => {
 
     } catch (error) {
       console.log(error)
+
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
@@ -59,7 +61,7 @@ const useUser = () => {
       console.log(error)
 
       showToast({
-        message: JSON.stringify(error),
+        message: getError(error),
         type: 'error'
       })
     }
