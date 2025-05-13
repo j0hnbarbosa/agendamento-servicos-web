@@ -1,7 +1,7 @@
 import { FC } from "react"
 import { useTranslation } from "react-i18next"
 import { RegisterUserProps, useRegisterUser } from "@/components/FormRegisterUser/hooks/useRegisterUser"
-import FileUpload from "@/components/FileUpload"
+// import FileUpload from "@/components/FileUpload"
 
 const FormRegisterUser: FC<RegisterUserProps> = (props) => {
   const { t } = useTranslation()
