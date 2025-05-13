@@ -31,7 +31,7 @@ const FormRegisterUser: FC<RegisterUserProps> = (props) => {
     <form className="form" onSubmit={handleSubmit}>
       <h2>{t('signup.title')}</h2>
 
-      <FileUpload />
+      {/* <FileUpload /> */}
 
       <div className="mb-4">
         <label htmlFor="name">
