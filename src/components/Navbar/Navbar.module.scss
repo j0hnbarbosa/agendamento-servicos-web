@@ -16,15 +16,21 @@
   }
 
   & nav li a {
-    color: #fff;
     text-decoration: none;
     padding: 5px;
   }
 
   & nav li a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #000;
     border-radius: 5px;
   }
+}
+
+.selectItem {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #000;
+  border-radius: 5px;
 }
 
 .navbarBrand {

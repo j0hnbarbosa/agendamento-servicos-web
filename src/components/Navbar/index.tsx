@@ -22,7 +22,7 @@ function Navbar() {
 
   const WIDTH_IMG = 26
 
-  const selectedURI = window.location.pathname
+  const selectedURI = window.location.pathname?.toLowerCase()
 
   useEffect(() => {
     const lang = localStorage.getItem("i18nextLng")
@@ -62,19 +62,19 @@ function Navbar() {
           {isToShow && (
             <>
               <li>
-                <Link to="/web-agenda/" className={selectedURI === '/' ? 'text-black' : ''}>
+                <Link to="/web-agenda/" className={selectedURI === '/web-agenda/' ? `${styles.selectItem}` : 'text-white'}>
                   {t('navbar.home')}
                 </Link>
               </li>
 
               <li>
-                <Link to={"/web-agenda/workType"} className={selectedURI === '/workType' ? 'text-black' : ''}>
+                <Link to={"/web-agenda/workType"} className={selectedURI?.includes('/workType'.toLowerCase()) ? `${styles.selectItem}` : 'text-white'}>
                   {t('navbar.register-worktype')}
                 </Link>
               </li>
 
               <li>
-                <Link to="/web-agenda/admin" className={selectedURI === '/admin' ? 'text-black' : ''}>
+                <Link to="/web-agenda/admin" className={selectedURI?.includes('/admin') ? `${styles.selectItem}` : 'text-white'}>
                   {t('navbar.admin')}
                 </Link>
               </li>
@@ -87,7 +87,7 @@ function Navbar() {
           )}
 
           {!isToShow && <li>
-            <Link to="/web-agenda/login" className={selectedURI === '/login' ? 'text-black' : ''}>
+            <Link to="/web-agenda/login" className={'text-white'}>
               {t('navbar.login')}
             </Link>
           </li>}
