@@ -1,6 +1,7 @@
 services:
   web:
       image: agendamento-servicos-web
+      restart: always
       build:
         context: .
       environment:
